@@ -1,14 +1,13 @@
 //
-//  rokt_frameworkTests.swift
+//  RoktCalculatorCommandFactoryTests.swift
 //  rokt-frameworkTests
 //
-//  Created by Xuwei Liang on 1/12/21.
+//  Created by Xuwei Liang on 2/12/21.
 //
 
 import XCTest
-@testable import rokt_framework
 
-class rokt_frameworkTests: XCTestCase {
+class RoktCalculatorCommandFactoryTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

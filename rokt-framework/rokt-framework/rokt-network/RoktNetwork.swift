@@ -27,10 +27,10 @@ extension RoktNetworkError: LocalizedError {
 }
 
 final public class RoktNetworkConfiguration {
-    let policy: URLRequest.CachePolicy
+    let policy: RoktCachePolicy
     let timeout: TimeInterval
     
-    public init(policy: URLRequest.CachePolicy = .reloadRevalidatingCacheData, timeout: TimeInterval = 30.0) {
+    public init(policy: RoktCachePolicy = .cacheAndExpiresAfter(30.0 * TimeIntervalPeriod.minute), timeout: TimeInterval = 30) {
         self.policy = policy
         self.timeout = timeout
     }
@@ -38,16 +38,24 @@ final public class RoktNetworkConfiguration {
 
 final public class RoktNetwork {
     let configuration: RoktNetworkConfiguration
+    let cache: RoktCache
     
-    public init(_ configuration: RoktNetworkConfiguration = .init()) {
+    public init(with configuration: RoktNetworkConfiguration = .init(),
+                cache: RoktCache = RoktDefaultsCache()) {
         self.configuration = configuration
+        self.cache = cache
     }
     
-    public func execute<T: Decodable>(with command: RoktCommand, completion: @escaping (Result<T, RoktNetworkError>) -> Void) {
+    public func execute<T: Codable>(with command: RoktCommand, completion: @escaping (Result<T, RoktNetworkError>) -> Void) {
+        if let cached = cache.retrieve(command.cacheKey, object: T.self) {
+            completion(.success(cached))
+        }
+        
         let request = URLRequest(url: command.url,
-                                 cachePolicy: command.cachePolicy ?? configuration.policy ,
+                                 cachePolicy: .reloadIgnoringCacheData,
                                  timeoutInterval: command.timeout ?? configuration.timeout)
-        let dataTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let dataTask = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            guard let self = self else { return }
             if let err = error {
                 let roktError: RoktNetworkError = .general(err)
                 completion(.failure(roktError))
@@ -56,13 +64,16 @@ final public class RoktNetwork {
             
             do {
                 guard let data = data else { completion(.failure(RoktNetworkError.emptyData)); return }
-                let decodable = try JSONDecoder().decode(T.self, from: data)
-                completion(.success(decodable))
+                let decoded = try JSONDecoder().decode(T.self, from: data)
+                if let cachePolicy = command.cachePolicy {
+                    let _ = self.cache.store(data: decoded, cachePolicy: cachePolicy, key: command.cacheKey)
+                }
+                completion(.success(decoded))
             } catch {
                 completion(.failure(.errorDecodingData))
             }
         }
-    
+        
         dataTask.resume()
     }
 }

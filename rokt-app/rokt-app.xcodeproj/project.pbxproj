@@ -14,8 +14,6 @@
 		96CF47402757857900220A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96CF473F2757857900220A49 /* Assets.xcassets */; };
 		96CF47432757857900220A49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96CF47412757857900220A49 /* LaunchScreen.storyboard */; };
 		96CF474E2757857900220A49 /* rokt_appTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF474D2757857900220A49 /* rokt_appTests.swift */; };
-		96CF47582757857900220A49 /* rokt_appUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF47572757857900220A49 /* rokt_appUITests.swift */; };
-		96CF475A2757857900220A49 /* rokt_appUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF47592757857900220A49 /* rokt_appUITestsLaunchTests.swift */; };
 		96CF47682757860E00220A49 /* rokt_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CF47672757860E00220A49 /* rokt_framework.framework */; };
 		96CF47692757860E00220A49 /* rokt_framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 96CF47672757860E00220A49 /* rokt_framework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		96CF477627578D9600220A49 /* CalculatorViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF477527578D9600220A49 /* CalculatorViewPresenter.swift */; };
@@ -24,13 +22,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		96CF474A2757857900220A49 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 96CF472B2757857700220A49 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 96CF47322757857700220A49;
-			remoteInfo = "rokt-app";
-		};
-		96CF47542757857900220A49 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 96CF472B2757857700220A49 /* Project object */;
 			proxyType = 1;
@@ -64,9 +55,6 @@
 		96CF47442757857900220A49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96CF47492757857900220A49 /* rokt-appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rokt-appTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CF474D2757857900220A49 /* rokt_appTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rokt_appTests.swift; sourceTree = "<group>"; };
-		96CF47532757857900220A49 /* rokt-appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rokt-appUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		96CF47572757857900220A49 /* rokt_appUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rokt_appUITests.swift; sourceTree = "<group>"; };
-		96CF47592757857900220A49 /* rokt_appUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rokt_appUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		96CF47672757860E00220A49 /* rokt_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = rokt_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CF477527578D9600220A49 /* CalculatorViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewPresenter.swift; sourceTree = "<group>"; };
 		96CF477F2757A50900220A49 /* CalculatorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorConfiguration.swift; sourceTree = "<group>"; };
@@ -88,13 +76,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96CF47502757857900220A49 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -103,7 +84,6 @@
 			children = (
 				96CF47352757857700220A49 /* rokt-app */,
 				96CF474C2757857900220A49 /* rokt-appTests */,
-				96CF47562757857900220A49 /* rokt-appUITests */,
 				96CF47342757857700220A49 /* Products */,
 				96CF47662757860E00220A49 /* Frameworks */,
 			);
@@ -114,7 +94,6 @@
 			children = (
 				96CF47332757857700220A49 /* rokt-app.app */,
 				96CF47492757857900220A49 /* rokt-appTests.xctest */,
-				96CF47532757857900220A49 /* rokt-appUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -139,15 +118,6 @@
 				96CF474D2757857900220A49 /* rokt_appTests.swift */,
 			);
 			path = "rokt-appTests";
-			sourceTree = "<group>";
-		};
-		96CF47562757857900220A49 /* rokt-appUITests */ = {
-			isa = PBXGroup;
-			children = (
-				96CF47572757857900220A49 /* rokt_appUITests.swift */,
-				96CF47592757857900220A49 /* rokt_appUITestsLaunchTests.swift */,
-			);
-			path = "rokt-appUITests";
 			sourceTree = "<group>";
 		};
 		96CF47662757860E00220A49 /* Frameworks */ = {
@@ -207,24 +177,6 @@
 			productReference = 96CF47492757857900220A49 /* rokt-appTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		96CF47522757857900220A49 /* rokt-appUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 96CF47632757857900220A49 /* Build configuration list for PBXNativeTarget "rokt-appUITests" */;
-			buildPhases = (
-				96CF474F2757857900220A49 /* Sources */,
-				96CF47502757857900220A49 /* Frameworks */,
-				96CF47512757857900220A49 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				96CF47552757857900220A49 /* PBXTargetDependency */,
-			);
-			name = "rokt-appUITests";
-			productName = "rokt-appUITests";
-			productReference = 96CF47532757857900220A49 /* rokt-appUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -239,10 +191,6 @@
 						CreatedOnToolsVersion = 13.1;
 					};
 					96CF47482757857900220A49 = {
-						CreatedOnToolsVersion = 13.1;
-						TestTargetID = 96CF47322757857700220A49;
-					};
-					96CF47522757857900220A49 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = 96CF47322757857700220A49;
 					};
@@ -263,7 +211,6 @@
 			targets = (
 				96CF47322757857700220A49 /* rokt-app */,
 				96CF47482757857900220A49 /* rokt-appTests */,
-				96CF47522757857900220A49 /* rokt-appUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -280,13 +227,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		96CF47472757857900220A49 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		96CF47512757857900220A49 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -316,15 +256,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96CF474F2757857900220A49 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				96CF475A2757857900220A49 /* rokt_appUITestsLaunchTests.swift in Sources */,
-				96CF47582757857900220A49 /* rokt_appUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -332,11 +263,6 @@
 			isa = PBXTargetDependency;
 			target = 96CF47322757857700220A49 /* rokt-app */;
 			targetProxy = 96CF474A2757857900220A49 /* PBXContainerItemProxy */;
-		};
-		96CF47552757857900220A49 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 96CF47322757857700220A49 /* rokt-app */;
-			targetProxy = 96CF47542757857900220A49 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -580,50 +506,6 @@
 			};
 			name = Release;
 		};
-		96CF47642757857900220A49 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rokt.rokt-appUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "rokt-app";
-			};
-			name = Debug;
-		};
-		96CF47652757857900220A49 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rokt.rokt-appUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "rokt-app";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -650,15 +532,6 @@
 			buildConfigurations = (
 				96CF47612757857900220A49 /* Debug */,
 				96CF47622757857900220A49 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		96CF47632757857900220A49 /* Build configuration list for PBXNativeTarget "rokt-appUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				96CF47642757857900220A49 /* Debug */,
-				96CF47652757857900220A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
