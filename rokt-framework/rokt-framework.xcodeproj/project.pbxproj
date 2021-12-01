@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96CF4715275784EE00220A49 /* rokt_framework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 96CF4714275784EE00220A49 /* rokt_framework.docc */; };
+		96CF471B275784EF00220A49 /* rokt_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CF4710275784EE00220A49 /* rokt_framework.framework */; };
+		96CF4720275784EF00220A49 /* rokt_frameworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF471F275784EF00220A49 /* rokt_frameworkTests.swift */; };
+		96CF4721275784EF00220A49 /* rokt_framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 96CF4713275784EE00220A49 /* rokt_framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96CF476E275789EE00220A49 /* RoktCalculatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF476D275789EE00220A49 /* RoktCalculatorService.swift */; };
+		96CF477027578A4500220A49 /* RoktCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF476F27578A4500220A49 /* RoktCommand.swift */; };
+		96CF477227578A5200220A49 /* RoktNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF477127578A5200220A49 /* RoktNetwork.swift */; };
+		96CF4778275795D400220A49 /* RoktCalculatorFetchSeriesCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF4777275795D400220A49 /* RoktCalculatorFetchSeriesCommand.swift */; };
+		96CF477E2757A38F00220A49 /* RoktCalculatorCommandFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF477D2757A38F00220A49 /* RoktCalculatorCommandFactory.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		96CF471C275784EF00220A49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96CF4707275784EE00220A49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96CF470F275784EE00220A49;
+			remoteInfo = "rokt-framework";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		96CF4710275784EE00220A49 /* rokt_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = rokt_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CF4713275784EE00220A49 /* rokt_framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rokt_framework.h; sourceTree = "<group>"; };
+		96CF4714275784EE00220A49 /* rokt_framework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = rokt_framework.docc; sourceTree = "<group>"; };
+		96CF471A275784EF00220A49 /* rokt-frameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "rokt-frameworkTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		96CF471F275784EF00220A49 /* rokt_frameworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = rokt_frameworkTests.swift; sourceTree = "<group>"; };
+		96CF476D275789EE00220A49 /* RoktCalculatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktCalculatorService.swift; sourceTree = "<group>"; };
+		96CF476F27578A4500220A49 /* RoktCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktCommand.swift; sourceTree = "<group>"; };
+		96CF477127578A5200220A49 /* RoktNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktNetwork.swift; sourceTree = "<group>"; };
+		96CF4777275795D400220A49 /* RoktCalculatorFetchSeriesCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktCalculatorFetchSeriesCommand.swift; sourceTree = "<group>"; };
+		96CF477D2757A38F00220A49 /* RoktCalculatorCommandFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktCalculatorCommandFactory.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96CF470D275784EE00220A49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CF4717275784EF00220A49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CF471B275784EF00220A49 /* rokt_framework.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96CF4706275784EE00220A49 = {
+			isa = PBXGroup;
+			children = (
+				96CF4712275784EE00220A49 /* rokt-framework */,
+				96CF471E275784EF00220A49 /* rokt-frameworkTests */,
+				96CF4711275784EE00220A49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96CF4711275784EE00220A49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96CF4710275784EE00220A49 /* rokt_framework.framework */,
+				96CF471A275784EF00220A49 /* rokt-frameworkTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96CF4712275784EE00220A49 /* rokt-framework */ = {
+			isa = PBXGroup;
+			children = (
+				96CF476C275789AC00220A49 /* rokt-network */,
+				96CF476B2757894800220A49 /* rokt-calculator */,
+				96CF4713275784EE00220A49 /* rokt_framework.h */,
+				96CF4714275784EE00220A49 /* rokt_framework.docc */,
+			);
+			path = "rokt-framework";
+			sourceTree = "<group>";
+		};
+		96CF471E275784EF00220A49 /* rokt-frameworkTests */ = {
+			isa = PBXGroup;
+			children = (
+				96CF471F275784EF00220A49 /* rokt_frameworkTests.swift */,
+			);
+			path = "rokt-frameworkTests";
+			sourceTree = "<group>";
+		};
+		96CF476B2757894800220A49 /* rokt-calculator */ = {
+			isa = PBXGroup;
+			children = (
+				96CF477A275796B300220A49 /* model */,
+				96CF4779275796A400220A49 /* command */,
+				96CF476D275789EE00220A49 /* RoktCalculatorService.swift */,
+			);
+			path = "rokt-calculator";
+			sourceTree = "<group>";
+		};
+		96CF476C275789AC00220A49 /* rokt-network */ = {
+			isa = PBXGroup;
+			children = (
+				96CF476F27578A4500220A49 /* RoktCommand.swift */,
+				96CF477127578A5200220A49 /* RoktNetwork.swift */,
+			);
+			path = "rokt-network";
+			sourceTree = "<group>";
+		};
+		96CF4779275796A400220A49 /* command */ = {
+			isa = PBXGroup;
+			children = (
+				96CF4777275795D400220A49 /* RoktCalculatorFetchSeriesCommand.swift */,
+				96CF477D2757A38F00220A49 /* RoktCalculatorCommandFactory.swift */,
+			);
+			path = command;
+			sourceTree = "<group>";
+		};
+		96CF477A275796B300220A49 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		96CF470B275784EE00220A49 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CF4721275784EF00220A49 /* rokt_framework.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		96CF470F275784EE00220A49 /* rokt-framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96CF4724275784EF00220A49 /* Build configuration list for PBXNativeTarget "rokt-framework" */;
+			buildPhases = (
+				96CF470B275784EE00220A49 /* Headers */,
+				96CF470C275784EE00220A49 /* Sources */,
+				96CF470D275784EE00220A49 /* Frameworks */,
+				96CF470E275784EE00220A49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "rokt-framework";
+			productName = "rokt-framework";
+			productReference = 96CF4710275784EE00220A49 /* rokt_framework.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		96CF4719275784EF00220A49 /* rokt-frameworkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96CF4727275784EF00220A49 /* Build configuration list for PBXNativeTarget "rokt-frameworkTests" */;
+			buildPhases = (
+				96CF4716275784EF00220A49 /* Sources */,
+				96CF4717275784EF00220A49 /* Frameworks */,
+				96CF4718275784EF00220A49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96CF471D275784EF00220A49 /* PBXTargetDependency */,
+			);
+			name = "rokt-frameworkTests";
+			productName = "rokt-frameworkTests";
+			productReference = 96CF471A275784EF00220A49 /* rokt-frameworkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96CF4707275784EE00220A49 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1310;
+				LastUpgradeCheck = 1310;
+				TargetAttributes = {
+					96CF470F275784EE00220A49 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+					96CF4719275784EF00220A49 = {
+						CreatedOnToolsVersion = 13.1;
+					};
+				};
+			};
+			buildConfigurationList = 96CF470A275784EE00220A49 /* Build configuration list for PBXProject "rokt-framework" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96CF4706275784EE00220A49;
+			productRefGroup = 96CF4711275784EE00220A49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96CF470F275784EE00220A49 /* rokt-framework */,
+				96CF4719275784EF00220A49 /* rokt-frameworkTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96CF470E275784EE00220A49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CF4718275784EF00220A49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96CF470C275784EE00220A49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CF4715275784EE00220A49 /* rokt_framework.docc in Sources */,
+				96CF476E275789EE00220A49 /* RoktCalculatorService.swift in Sources */,
+				96CF477227578A5200220A49 /* RoktNetwork.swift in Sources */,
+				96CF4778275795D400220A49 /* RoktCalculatorFetchSeriesCommand.swift in Sources */,
+				96CF477E2757A38F00220A49 /* RoktCalculatorCommandFactory.swift in Sources */,
+				96CF477027578A4500220A49 /* RoktCommand.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96CF4716275784EF00220A49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96CF4720275784EF00220A49 /* rokt_frameworkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96CF471D275784EF00220A49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96CF470F275784EE00220A49 /* rokt-framework */;
+			targetProxy = 96CF471C275784EF00220A49 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		96CF4722275784EF00220A49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		96CF4723275784EF00220A49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		96CF4725275784EF00220A49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rokt.rokt-framework";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96CF4726275784EF00220A49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rokt.rokt-framework";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		96CF4728275784EF00220A49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rokt.rokt-frameworkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96CF4729275784EF00220A49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.rokt.rokt-frameworkTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96CF470A275784EE00220A49 /* Build configuration list for PBXProject "rokt-framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CF4722275784EF00220A49 /* Debug */,
+				96CF4723275784EF00220A49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96CF4724275784EF00220A49 /* Build configuration list for PBXNativeTarget "rokt-framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CF4725275784EF00220A49 /* Debug */,
+				96CF4726275784EF00220A49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96CF4727275784EF00220A49 /* Build configuration list for PBXNativeTarget "rokt-frameworkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96CF4728275784EF00220A49 /* Debug */,
+				96CF4729275784EF00220A49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96CF4707275784EE00220A49 /* Project object */;
+}
