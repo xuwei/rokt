@@ -15,7 +15,11 @@ public enum HttpMethod: String {
 public protocol RoktCommand {
     var url: URL { get }
     var method: HttpMethod { get }
-    var cachePolicy: RoktCachePolicy? { get }
+    var cachePolicy: RoktCachePolicy { get }
     var timeout: TimeInterval? { get }
     var cacheKey: String { get }
+}
+
+extension RoktCommand {
+    var cachePolicy: RoktCachePolicy { .noCache }
 }

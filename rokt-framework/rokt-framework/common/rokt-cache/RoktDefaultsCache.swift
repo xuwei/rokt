@@ -8,17 +8,29 @@
 import Foundation
 
 final public class RoktDefaultsCache: RoktCache {
-    let defaults: UserDefaults
+    public static let defaultSuiteName = "RoktDefaults"
+    private let suiteName: String
+    private let defaults: UserDefaults
     
-    public init(with defaults: UserDefaults = UserDefaults.standard) {
-        self.defaults = defaults
+    public init(with suiteName: String = RoktDefaultsCache.defaultSuiteName) {
+        self.suiteName = suiteName
+        self.defaults = UserDefaults(suiteName: self.suiteName)!
     }
     
     public func store<T: Codable>(data: T, cachePolicy: RoktCachePolicy, key: String) -> Bool {
-        guard cachePolicy != RoktCachePolicy.none else { return false }
+        guard cachePolicy != RoktCachePolicy.noCache else { return false }
         switch cachePolicy {
-        case .none:
+        case .noCache:
             return false
+        case .neverExpires:
+            let encoder = JSONEncoder()
+            guard let data = try? encoder.encode(data) else { return false }
+            let cacheData = RoktCacheData(cachedDate: Date(),
+                                          validUntil: nil,
+                                          data: data)
+            guard let encodedCacheData = try? encoder.encode(cacheData) else { return false }
+            defaults.set(encodedCacheData, forKey: key)
+            return true
         case .cacheAndExpiresAfter(let timeInterval):
             let encoder = JSONEncoder()
             guard let data = try? encoder.encode(data) else { return false }
@@ -35,8 +47,13 @@ final public class RoktDefaultsCache: RoktCache {
         guard let encoded = defaults.object(forKey: key) as? Data else { return nil }
         let decoder = JSONDecoder()
         guard let decodedCacheData = try? decoder.decode(RoktCacheData.self, from: encoded) else { return nil }
-        guard Date() < decodedCacheData.validUntil else { return nil }
+        if let validUntil = decodedCacheData.validUntil, Date() > validUntil { return nil }
         guard let decodedData = try? decoder.decode(T.self, from: decodedCacheData.data) else { return nil }
         return decodedData
+    }
+    
+    public func clearCache() {
+        defaults.removeSuite(named: suiteName)
+        defaults.removePersistentDomain(forName: suiteName)
     }
 }

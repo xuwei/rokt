@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9614993E2758C72C004F159A /* RoktDefaultCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614993D2758C72C004F159A /* RoktDefaultCacheTests.swift */; };
-		961499422758C7FA004F159A /* RoktCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961499412758C7FA004F159A /* RoktCache.swift */; };
+		9614993E2758C72C004F159A /* RoktDefaultsCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614993D2758C72C004F159A /* RoktDefaultsCacheTests.swift */; };
 		961499452758D598004F159A /* RoktNetworkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961499442758D598004F159A /* RoktNetworkTests.swift */; };
 		961499492758D8B3004F159A /* RoktCalculatorServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961499482758D8B3004F159A /* RoktCalculatorServiceTests.swift */; };
 		9614994B2758D9C0004F159A /* RoktCalculatorFetchSeriesCommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614994A2758D9C0004F159A /* RoktCalculatorFetchSeriesCommandTests.swift */; };
 		9614994D2758D9D9004F159A /* RoktCalculatorCommandFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614994C2758D9D9004F159A /* RoktCalculatorCommandFactoryTests.swift */; };
+		9614995227590087004F159A /* RoktCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9614995127590087004F159A /* RoktCache.swift */; };
+		9614995A2759145F004F159A /* RoktMockCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961499592759145F004F159A /* RoktMockCache.swift */; };
+		96749A2E275A457000B03D61 /* RoktMockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749A2D275A457000B03D61 /* RoktMockURLSession.swift */; };
+		96749A30275A4F8100B03D61 /* RoktSeriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749A2F275A4F8100B03D61 /* RoktSeriesResponse.swift */; };
+		96749A38275A51D800B03D61 /* RoktSeriesResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749A37275A51D800B03D61 /* RoktSeriesResponseTests.swift */; };
+		96749A3B275A581A00B03D61 /* RoktConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749A3A275A581A00B03D61 /* RoktConstants.swift */; };
 		96CF4715275784EE00220A49 /* rokt_framework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 96CF4714275784EE00220A49 /* rokt_framework.docc */; };
 		96CF471B275784EF00220A49 /* rokt_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CF4710275784EE00220A49 /* rokt_framework.framework */; };
 		96CF4721275784EF00220A49 /* rokt_framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 96CF4713275784EE00220A49 /* rokt_framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -35,12 +40,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9614993D2758C72C004F159A /* RoktDefaultCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktDefaultCacheTests.swift; sourceTree = "<group>"; };
-		961499412758C7FA004F159A /* RoktCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RoktCache.swift; path = "rokt-frameworkTests/rokt-network/RoktCache.swift"; sourceTree = SOURCE_ROOT; };
+		9614993D2758C72C004F159A /* RoktDefaultsCacheTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktDefaultsCacheTests.swift; sourceTree = "<group>"; };
 		961499442758D598004F159A /* RoktNetworkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktNetworkTests.swift; sourceTree = "<group>"; };
 		961499482758D8B3004F159A /* RoktCalculatorServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktCalculatorServiceTests.swift; sourceTree = "<group>"; };
 		9614994A2758D9C0004F159A /* RoktCalculatorFetchSeriesCommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktCalculatorFetchSeriesCommandTests.swift; sourceTree = "<group>"; };
 		9614994C2758D9D9004F159A /* RoktCalculatorCommandFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktCalculatorCommandFactoryTests.swift; sourceTree = "<group>"; };
+		9614995127590087004F159A /* RoktCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoktCache.swift; sourceTree = "<group>"; };
+		961499592759145F004F159A /* RoktMockCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktMockCache.swift; sourceTree = "<group>"; };
+		96749A2D275A457000B03D61 /* RoktMockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktMockURLSession.swift; sourceTree = "<group>"; };
+		96749A2F275A4F8100B03D61 /* RoktSeriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktSeriesResponse.swift; sourceTree = "<group>"; };
+		96749A37275A51D800B03D61 /* RoktSeriesResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktSeriesResponseTests.swift; sourceTree = "<group>"; };
+		96749A3A275A581A00B03D61 /* RoktConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktConstants.swift; sourceTree = "<group>"; };
 		96CF4710275784EE00220A49 /* rokt_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = rokt_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CF4713275784EE00220A49 /* rokt_framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rokt_framework.h; sourceTree = "<group>"; };
 		96CF4714275784EE00220A49 /* rokt_framework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = rokt_framework.docc; sourceTree = "<group>"; };
@@ -75,7 +85,7 @@
 		9614993F2758C7BC004F159A /* rokt-cache */ = {
 			isa = PBXGroup;
 			children = (
-				961499412758C7FA004F159A /* RoktCache.swift */,
+				9614995127590087004F159A /* RoktCache.swift */,
 				96CF47832757B23400220A49 /* RoktDefaultsCache.swift */,
 			);
 			path = "rokt-cache";
@@ -84,6 +94,7 @@
 		961499432758D506004F159A /* integrationTests */ = {
 			isa = PBXGroup;
 			children = (
+				96749A39275A51EA00B03D61 /* mocks */,
 				961499442758D598004F159A /* RoktNetworkTests.swift */,
 			);
 			path = integrationTests;
@@ -95,6 +106,68 @@
 				961499482758D8B3004F159A /* RoktCalculatorServiceTests.swift */,
 			);
 			path = integrationTests;
+			sourceTree = "<group>";
+		};
+		9614994E2758F2E7004F159A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				9614993F2758C7BC004F159A /* rokt-cache */,
+				96CF476C275789AC00220A49 /* rokt-network */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		9614994F2758F2FA004F159A /* common */ = {
+			isa = PBXGroup;
+			children = (
+				961499502758F306004F159A /* rokt-cache */,
+				96CF47862757BD1D00220A49 /* rokt-network */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		961499502758F306004F159A /* rokt-cache */ = {
+			isa = PBXGroup;
+			children = (
+				9614993D2758C72C004F159A /* RoktDefaultsCacheTests.swift */,
+			);
+			path = "rokt-cache";
+			sourceTree = "<group>";
+		};
+		96749A32275A512200B03D61 /* command */ = {
+			isa = PBXGroup;
+			children = (
+				9614994A2758D9C0004F159A /* RoktCalculatorFetchSeriesCommandTests.swift */,
+				9614994C2758D9D9004F159A /* RoktCalculatorCommandFactoryTests.swift */,
+			);
+			path = command;
+			sourceTree = "<group>";
+		};
+		96749A34275A519000B03D61 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				96CF476D275789EE00220A49 /* RoktCalculatorService.swift */,
+				96749A2F275A4F8100B03D61 /* RoktSeriesResponse.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		96749A35275A51A000B03D61 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				961499472758D89B004F159A /* integrationTests */,
+				96749A37275A51D800B03D61 /* RoktSeriesResponseTests.swift */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		96749A39275A51EA00B03D61 /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				961499592759145F004F159A /* RoktMockCache.swift */,
+				96749A2D275A457000B03D61 /* RoktMockURLSession.swift */,
+			);
+			path = mocks;
 			sourceTree = "<group>";
 		};
 		96CF4706275784EE00220A49 = {
@@ -118,8 +191,7 @@
 		96CF4712275784EE00220A49 /* rokt-framework */ = {
 			isa = PBXGroup;
 			children = (
-				9614993F2758C7BC004F159A /* rokt-cache */,
-				96CF476C275789AC00220A49 /* rokt-network */,
+				9614994E2758F2E7004F159A /* common */,
 				96CF476B2757894800220A49 /* rokt-calculator */,
 				96CF4713275784EE00220A49 /* rokt_framework.h */,
 				96CF4714275784EE00220A49 /* rokt_framework.docc */,
@@ -130,8 +202,8 @@
 		96CF471E275784EF00220A49 /* rokt-frameworkTests */ = {
 			isa = PBXGroup;
 			children = (
+				9614994F2758F2FA004F159A /* common */,
 				96CF47872757BD3400220A49 /* rokt-calculator */,
-				96CF47862757BD1D00220A49 /* rokt-network */,
 			);
 			path = "rokt-frameworkTests";
 			sourceTree = "<group>";
@@ -139,8 +211,8 @@
 		96CF476B2757894800220A49 /* rokt-calculator */ = {
 			isa = PBXGroup;
 			children = (
+				96749A34275A519000B03D61 /* service */,
 				96CF4779275796A400220A49 /* command */,
-				96CF476D275789EE00220A49 /* RoktCalculatorService.swift */,
 			);
 			path = "rokt-calculator";
 			sourceTree = "<group>";
@@ -150,6 +222,7 @@
 			children = (
 				96CF476F27578A4500220A49 /* RoktCommand.swift */,
 				96CF477127578A5200220A49 /* RoktNetwork.swift */,
+				96749A3A275A581A00B03D61 /* RoktConstants.swift */,
 			);
 			path = "rokt-network";
 			sourceTree = "<group>";
@@ -167,7 +240,6 @@
 			isa = PBXGroup;
 			children = (
 				961499432758D506004F159A /* integrationTests */,
-				9614993D2758C72C004F159A /* RoktDefaultCacheTests.swift */,
 			);
 			path = "rokt-network";
 			sourceTree = "<group>";
@@ -175,9 +247,8 @@
 		96CF47872757BD3400220A49 /* rokt-calculator */ = {
 			isa = PBXGroup;
 			children = (
-				961499472758D89B004F159A /* integrationTests */,
-				9614994A2758D9C0004F159A /* RoktCalculatorFetchSeriesCommandTests.swift */,
-				9614994C2758D9D9004F159A /* RoktCalculatorCommandFactoryTests.swift */,
+				96749A35275A51A000B03D61 /* service */,
+				96749A32275A512200B03D61 /* command */,
 			);
 			path = "rokt-calculator";
 			sourceTree = "<group>";
@@ -292,13 +363,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				961499422758C7FA004F159A /* RoktCache.swift in Sources */,
 				96CF4715275784EE00220A49 /* rokt_framework.docc in Sources */,
+				96749A3B275A581A00B03D61 /* RoktConstants.swift in Sources */,
 				96CF476E275789EE00220A49 /* RoktCalculatorService.swift in Sources */,
 				96CF477227578A5200220A49 /* RoktNetwork.swift in Sources */,
 				96CF4778275795D400220A49 /* RoktCalculatorFetchSeriesCommand.swift in Sources */,
+				96749A30275A4F8100B03D61 /* RoktSeriesResponse.swift in Sources */,
 				96CF477E2757A38F00220A49 /* RoktCalculatorCommandFactory.swift in Sources */,
 				96CF477027578A4500220A49 /* RoktCommand.swift in Sources */,
+				9614995227590087004F159A /* RoktCache.swift in Sources */,
 				96CF47842757B23400220A49 /* RoktDefaultsCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,10 +380,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96749A2E275A457000B03D61 /* RoktMockURLSession.swift in Sources */,
 				961499492758D8B3004F159A /* RoktCalculatorServiceTests.swift in Sources */,
 				961499452758D598004F159A /* RoktNetworkTests.swift in Sources */,
 				9614994D2758D9D9004F159A /* RoktCalculatorCommandFactoryTests.swift in Sources */,
-				9614993E2758C72C004F159A /* RoktDefaultCacheTests.swift in Sources */,
+				9614995A2759145F004F159A /* RoktMockCache.swift in Sources */,
+				96749A38275A51D800B03D61 /* RoktSeriesResponseTests.swift in Sources */,
+				9614993E2758C72C004F159A /* RoktDefaultsCacheTests.swift in Sources */,
 				9614994B2758D9C0004F159A /* RoktCalculatorFetchSeriesCommandTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -436,7 +512,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -561,7 +637,7 @@
 				96CF4723275784EF00220A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		96CF4724275784EF00220A49 /* Build configuration list for PBXNativeTarget "rokt-framework" */ = {
 			isa = XCConfigurationList;
@@ -570,7 +646,7 @@
 				96CF4726275784EF00220A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		96CF4727275784EF00220A49 /* Build configuration list for PBXNativeTarget "rokt-frameworkTests" */ = {
 			isa = XCConfigurationList;
@@ -579,7 +655,7 @@
 				96CF4729275784EF00220A49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
