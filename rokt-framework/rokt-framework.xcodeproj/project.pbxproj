@@ -18,6 +18,7 @@
 		96749A30275A4F8100B03D61 /* RoktSeriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749A2F275A4F8100B03D61 /* RoktSeriesResponse.swift */; };
 		96749A38275A51D800B03D61 /* RoktSeriesResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749A37275A51D800B03D61 /* RoktSeriesResponseTests.swift */; };
 		96749A3B275A581A00B03D61 /* RoktConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96749A3A275A581A00B03D61 /* RoktConstants.swift */; };
+		96BB9F47275B513E00A47856 /* RoktMockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB9F46275B513E00A47856 /* RoktMockService.swift */; };
 		96CF4715275784EE00220A49 /* rokt_framework.docc in Sources */ = {isa = PBXBuildFile; fileRef = 96CF4714275784EE00220A49 /* rokt_framework.docc */; };
 		96CF471B275784EF00220A49 /* rokt_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96CF4710275784EE00220A49 /* rokt_framework.framework */; };
 		96CF4721275784EF00220A49 /* rokt_framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 96CF4713275784EE00220A49 /* rokt_framework.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,6 +52,7 @@
 		96749A2F275A4F8100B03D61 /* RoktSeriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktSeriesResponse.swift; sourceTree = "<group>"; };
 		96749A37275A51D800B03D61 /* RoktSeriesResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktSeriesResponseTests.swift; sourceTree = "<group>"; };
 		96749A3A275A581A00B03D61 /* RoktConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktConstants.swift; sourceTree = "<group>"; };
+		96BB9F46275B513E00A47856 /* RoktMockService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktMockService.swift; sourceTree = "<group>"; };
 		96CF4710275784EE00220A49 /* rokt_framework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = rokt_framework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CF4713275784EE00220A49 /* rokt_framework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rokt_framework.h; sourceTree = "<group>"; };
 		96CF4714275784EE00220A49 /* rokt_framework.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = rokt_framework.docc; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				9614994A2758D9C0004F159A /* RoktCalculatorFetchSeriesCommandTests.swift */,
 				9614994C2758D9D9004F159A /* RoktCalculatorCommandFactoryTests.swift */,
+				96BB9F46275B513E00A47856 /* RoktMockService.swift */,
 			);
 			path = command;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				961499492758D8B3004F159A /* RoktCalculatorServiceTests.swift in Sources */,
 				961499452758D598004F159A /* RoktNetworkTests.swift in Sources */,
 				9614994D2758D9D9004F159A /* RoktCalculatorCommandFactoryTests.swift in Sources */,
+				96BB9F47275B513E00A47856 /* RoktMockService.swift in Sources */,
 				9614995A2759145F004F159A /* RoktMockCache.swift in Sources */,
 				96749A38275A51D800B03D61 /* RoktSeriesResponseTests.swift in Sources */,
 				9614993E2758C72C004F159A /* RoktDefaultsCacheTests.swift in Sources */,
@@ -454,13 +458,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -512,12 +517,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -536,7 +542,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -565,7 +571,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

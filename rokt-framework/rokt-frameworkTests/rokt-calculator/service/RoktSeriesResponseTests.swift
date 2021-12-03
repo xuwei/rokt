@@ -11,7 +11,7 @@ import XCTest
 class RoktSeriesResponseTests: XCTestCase {
     
     func testRoktSeriesResponseWithEmptySeries() {
-        let response = RoktSeriesRespones(series: [])
+        let response = RoktSeriesResponse(series: [])
         XCTAssertNotNil(response)
         XCTAssertNotNil(response.series)
         XCTAssertTrue(response.series.count == 0)
@@ -19,7 +19,7 @@ class RoktSeriesResponseTests: XCTestCase {
     }
     
     func testRoktSeriesResponseWithPositiveAndNegativeValuesInSeries() {
-        let response = RoktSeriesRespones(series: [10.0, -300.0,-100.0, 400.0])
+        let response = RoktSeriesResponse(series: [10.0, -300.0,-100.0, 400.0])
         XCTAssertNotNil(response)
         XCTAssertNotNil(response.series)
         XCTAssertTrue(response.series.count == 4)
@@ -27,7 +27,7 @@ class RoktSeriesResponseTests: XCTestCase {
     }
     
     func testRoktSeriesResponseWithPositiveInSeries() {
-        let response = RoktSeriesRespones(series: [10.0, -300.0,-100.0, 400.0])
+        let response = RoktSeriesResponse(series: [10.0, -300.0,-100.0, 400.0])
         XCTAssertNotNil(response)
         XCTAssertNotNil(response.series)
         XCTAssertTrue(response.series.count == 4)
@@ -40,7 +40,7 @@ class RoktSeriesResponseTests: XCTestCase {
             series.append(Double(i))
         }
         
-        let response = RoktSeriesRespones(series: series)
+        let response = RoktSeriesResponse(series: series)
         XCTAssertNotNil(response)
         XCTAssertNotNil(response.series)
         XCTAssertTrue(response.series.count == 10)
@@ -54,7 +54,7 @@ class RoktSeriesResponseTests: XCTestCase {
             series.append(Double(i))
         }
         
-        let response = RoktSeriesRespones(series: series)
+        let response = RoktSeriesResponse(series: series)
         XCTAssertNotNil(response)
         XCTAssertNotNil(response.series)
         XCTAssertTrue(response.series.count == 100000)

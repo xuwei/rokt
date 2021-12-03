@@ -51,7 +51,7 @@ fileprivate struct TimeoutTestCommand: RoktCommand {
 class RoktNetworkTests: XCTestCase {
     static let testApiBaseUrl = "https://us-central1-rokt-test-api.cloudfunctions.net"
 
-    let integrationTestTimeout = 10.0
+    let integrationTestTimeout = 30.0
     
     func testSuccessWithoutCache() {
         let roktNetwork = RoktNetwork(cache: RoktMockCache())

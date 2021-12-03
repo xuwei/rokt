@@ -7,14 +7,17 @@
 
 import Foundation
 
-public struct RoktSeriesRespones {
-    let series: [Double]
-    private(set) var sum: Double
-    private(set) var average: Double
+public struct RoktSeriesResponse {
+    public let series: [Double]
+    private(set) var _sum: Double
+    private(set) var _average: Double
+    public var average: Double { _average }
     
     public init(series: [Double]) {
         self.series = series
-        self.sum = self.series.count > 0 ? self.series.reduce(0.0, +) : 0.0
-        self.average = self.series.count > 0 ? self.sum / Double(self.series.count) : 0.0
+        self._sum = self.series.count > 0 ? self.series.reduce(0.0, +) : 0.0
+        self._average = self.series.count > 0 ? self._sum / Double(self.series.count) : 0.0
     }
+    
+    
 }

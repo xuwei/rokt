@@ -9,7 +9,6 @@ import UIKit
 
 class CalculatorViewController: UIViewController, CalculatorViewProtocol {
     @IBOutlet weak var tableView: UITableView!
-    
     let presenter: CalculatorViewPresenterProtocol = CalculatorViewPresenter()
     
     override func viewDidLoad() {
@@ -25,7 +24,13 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
     
     // MARK: - CalculatorViewProtocol
     func render() {
-        // refresh data
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func showDialog(message: String) {
+        // show alert text by message here
     }
     
     // MARK: - Private
@@ -40,13 +45,16 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
 
 extension CalculatorViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let series = presenter.viewModel?.series else { return UITableViewCell() }
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
+        cell.textLabel?.text = series[indexPath.row]
+        return cell
     }
 }
 
 extension CalculatorViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
+        presenter.viewModel?.series.count ?? 0
     }
 }
 
