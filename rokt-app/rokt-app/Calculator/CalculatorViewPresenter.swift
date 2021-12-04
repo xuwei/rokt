@@ -12,30 +12,22 @@ import rokt_framework
 protocol CalculatorViewProtocol {
     func render(with viewState: CalculatorViewState)
     func showDialog(message: String)
+    func showForm(context: CalculatorFormContext,delegate: CalculatorFormViewControllerDelegate?)
+    func dismiss()
 }
 
 // MARK: - CalculatorViewPresenterProtocol
 protocol CalculatorViewPresenterProtocol {
     func bind(_ view: CalculatorViewProtocol)
     func viewDidAppear()
-    func didTapAddItem()
-    func didTapDeleteItem()
-    func didToggleEdit()
-}
-
-// MARK: - CalculatorViewContext
-enum CalculatorViewContext: String {
-    case edit = "Edit"
-    case view = "View"
+    func didTapAdd()
+    func didTapDelete()
 }
 
 // MARK: - CalculatorViewModel
 struct CalculatorViewModel {
     let series: [SeriesItemTableViewCellViewModel]
     let average: String
-    let context: CalculatorViewContext
-    var editToggleTitle: String { context == .edit ? "View" : "Edit" }
-    var showDeleteButton: Bool { context == .edit }
 }
 
 enum CalculatorViewState {
@@ -48,7 +40,6 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
     private let service: RoktCalculatorService
     private var viewModel: CalculatorViewModel?
     private var view: CalculatorViewProtocol?
-    private var context: CalculatorViewContext = .view
     
     init(configuration: CalculatorConfiguration = CalculatorConfiguration()) {
         self.service = RoktCalculatorService(baseURLString: configuration.baseURLString)
@@ -65,24 +56,12 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
     
     
     // MARK: - CalculatorViewPresenterProtocol
-    func didTapAddItem() {
-        
+    func didTapAdd() {
+        view?.showForm(context: .add, delegate: self)
     }
     
-    func didTapDeleteItem() {
-        
-    }
-    
-    func didToggleEdit() {
-        guard let viewModel = viewModel else { return }
-        context = context == .edit ? .view : .edit
-        let updatedSeries = viewModel.series.map {
-            SeriesItemTableViewCellViewModel(value: $0.value,
-                                             textColor: $0.textColor)
-        }
-        let updatedCalculatorViewModel = CalculatorViewModel(series: updatedSeries, average: viewModel.average, context: context)
-        self.viewModel = updatedCalculatorViewModel
-        render()
+    func didTapDelete() {
+        view?.showForm(context: .delete, delegate: self)
     }
     
     // MARK: - CalculatorViewProtocol
@@ -110,14 +89,23 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
                 }
                 
                 self.viewModel = CalculatorViewModel(series: seriesItems,
-                                                     average: String(format: "%.5f", seriesResponse.average),
-                                                     context: self.context)
+                                                     average: String(format: "%.5f", seriesResponse.average))
                 self.render()
             case .failure(let err):
-                self.viewModel = CalculatorViewModel(series: [], average: "--", context: self.context)
+                self.viewModel = CalculatorViewModel(series: [], average: "--")
                 self.render()
                 self.view?.showDialog(message: err.localizedDescription)
             }
         }
+    }
+}
+
+extension CalculatorViewPresenter: CalculatorFormViewControllerDelegate {
+    func textEntered(_ text: String) {
+        print(text)
+    }
+    
+    func cancel() {
+        view?.dismiss()
     }
 }

@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol SeriesItemTableViewCellDelgate: AnyObject {
-    func deleteItemFromSeries(_ cell: SeriesItemTableViewCell);
-}
-
 struct SeriesItemTableViewCellViewModel: RoktTableViewModelProtocol {
     let value: String
     let textColor: UIColor
@@ -18,14 +14,13 @@ struct SeriesItemTableViewCellViewModel: RoktTableViewModelProtocol {
 
 final class SeriesItemTableViewCell: UITableViewCell, RoktTableViewCell {
     @IBOutlet weak var valueLabel: UILabel!
-    weak var delegate: SeriesItemTableViewCellDelgate?
     
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
     
     // MARK: - RoktTableViewCell
-    func configure(_ viewModel: RoktTableViewModelProtocol, delegate: SeriesItemTableViewCellDelgate? = nil) {
+    func configure(_ viewModel: RoktTableViewModelProtocol) {
         guard let viewModel = viewModel as? SeriesItemTableViewCellViewModel else { return }
         valueLabel.text = viewModel.value
         valueLabel.textColor = viewModel.textColor

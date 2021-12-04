@@ -10,5 +10,5 @@ import Foundation
 protocol RoktTableViewModelProtocol {}
 
 protocol RoktTableViewCell {
-    func configure(_ viewModel: RoktTableViewModelProtocol, delegate: SeriesItemTableViewCellDelgate?)
+    func configure(_ viewModel: RoktTableViewModelProtocol)
 }

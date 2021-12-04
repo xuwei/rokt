@@ -12,6 +12,7 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     let presenter: CalculatorViewPresenterProtocol = CalculatorViewPresenter()
     let cellIdentifier = "SeriesItemTableViewCell"
+    let formStoryboardId = "CalculatorFormViewController"
     private(set) var viewModel: CalculatorViewModel?
     
     override func viewDidLoad() {
@@ -40,11 +41,6 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
             guard let self = self else { return }
             self.viewModel = viewModel
             self.title = String("Avg: \(viewModel.average)")
-            let rightButton = UIBarButtonItem(title: viewModel.editToggleTitle,
-                                              style: .plain,
-                                              target: self,
-                                              action: #selector(self.toggleEdit))
-            self.navigationItem.setRightBarButton(rightButton, animated: true)
             self.loadingIndicator.stopAnimating()
             self.tableView.isHidden = false
             self.tableView.reloadData()
@@ -56,27 +52,48 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
         loadingIndicator.startAnimating()
     }
     
+    func showForm(context: CalculatorFormContext, delegate: CalculatorFormViewControllerDelegate?) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let viewController = storyboard.instantiateViewController(withIdentifier: formStoryboardId) as? CalculatorFormViewController else { return }
+        viewController.delegate = delegate
+        viewController.context = context
+        self.present(viewController, animated: true)
+    }
+    
+    func dismiss() {
+        self.dismiss(animated: true)
+    }
+    
     func showDialog(message: String) {
         // show alert text by message here
     }
     
     // MARK: - Private
     func setupUI() {
-        title = "Calculator"
+        title = "Avg:--"
         tableView.estimatedRowHeight = 40
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
         let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
-                                                                 style: .plain,
-                                                                 target: self,
-                                                                 action: #selector(toggleEdit))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add",
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(didTapAdd))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Delete",
+                                                           style: .plain,
+                                                           target: self,
+                                                           action: #selector(didTapDelete))
     }
     
-    @objc private func toggleEdit() {
-        presenter.didToggleEdit()
+    @objc private func didTapAdd() {
+        presenter.didTapAdd()
+    }
+    
+    @objc private func didTapDelete() {
+        presenter.didTapDelete()
     }
 }
 
@@ -87,7 +104,7 @@ extension CalculatorViewController: UITableViewDelegate {
         let cell: SeriesItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
                                                                           for: indexPath) as! SeriesItemTableViewCell
         
-        cell.configure(cellViewModel, delegate: self)
+        cell.configure(cellViewModel)
         return cell
     }
 }
@@ -95,11 +112,5 @@ extension CalculatorViewController: UITableViewDelegate {
 extension CalculatorViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel?.series.count ?? 0
-    }
-}
-
-extension CalculatorViewController: SeriesItemTableViewCellDelgate {
-    func deleteItemFromSeries(_ cell: SeriesItemTableViewCell) {
-        presenter.didTapDeleteItem()
     }
 }
