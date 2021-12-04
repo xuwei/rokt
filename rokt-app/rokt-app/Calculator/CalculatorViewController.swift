@@ -56,7 +56,7 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: formStoryboardId) as? CalculatorFormViewController else { return }
         viewController.delegate = delegate
-        viewController.context = context
+        viewController.presenter = CalculatorFormViewPresenter(with: context)
         let nav = UINavigationController(rootViewController: viewController)
         self.present(nav, animated: true)
     }
@@ -65,8 +65,11 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
         self.dismiss(animated: true)
     }
     
-    func showDialog(message: String) {
+    func showDialog(title: String, message: String) {
         // show alert text by message here
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+        self.present(alert, animated: true)
     }
     
     // MARK: - Private

@@ -11,7 +11,7 @@ import rokt_framework
 // MARK: - CalculatorViewProtocol
 protocol CalculatorViewProtocol {
     func render(with viewState: CalculatorViewState)
-    func showDialog(message: String)
+    func showDialog(title: String, message: String)
     func showForm(context: CalculatorFormContext,delegate: CalculatorFormViewControllerDelegate?)
     func dismiss()
 }
@@ -94,7 +94,7 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
             case .failure(let err):
                 self.viewModel = CalculatorViewModel(series: [], average: "--")
                 self.render()
-                self.view?.showDialog(message: err.localizedDescription)
+                self.view?.showDialog(title: "Error", message: err.localizedDescription)
             }
         }
     }
@@ -104,6 +104,8 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
         guard let command = factory.makeRoktCalculatorFetchSeriesCommand(with: .neverExpires) else { return }
         if service.addToSeries(value, for: command) {
             fetchData()
+        } else {
+            self.view?.showDialog(title: "Unable to add \(value)", message: "Already existed in series")
         }
     }
     
@@ -112,6 +114,8 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
         guard let command = factory.makeRoktCalculatorFetchSeriesCommand(with: .neverExpires) else { return }
         if service.removeNumberFromSeries(value, for: command) {
             fetchData()
+        } else {
+            self.view?.showDialog(title: "Unable to delete \(value)", message: "Missing in the series")
         }
     }
 }
@@ -126,7 +130,6 @@ extension CalculatorViewPresenter: CalculatorFormViewControllerDelegate {
             case .delete:
                 removeNumberFromSeries(numericValue)
             }
-            fetchData()
         }
     }
     

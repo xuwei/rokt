@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96623F58275C7F1D00379D3A /* CalculatorFormViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96623F57275C7F1D00379D3A /* CalculatorFormViewPresenter.swift */; };
 		96BB9F4A275B603000A47856 /* SeriesItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB9F49275B603000A47856 /* SeriesItemTableViewCell.swift */; };
 		96BB9F4C275B606500A47856 /* SeriesItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96BB9F4B275B606500A47856 /* SeriesItemTableViewCell.xib */; };
 		96BB9F4F275B630F00A47856 /* RoktTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB9F4E275B630F00A47856 /* RoktTableViewCell.swift */; };
 		96BB9F51275B959F00A47856 /* CalculatorFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB9F50275B959F00A47856 /* CalculatorFormViewController.swift */; };
+		96BB9F56275BB5F900A47856 /* ViewController_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB9F55275BB5F900A47856 /* ViewController_Extension.swift */; };
 		96CF47372757857700220A49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF47362757857700220A49 /* AppDelegate.swift */; };
 		96CF47392757857700220A49 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF47382757857700220A49 /* SceneDelegate.swift */; };
 		96CF473B2757857700220A49 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96CF473A2757857700220A49 /* CalculatorViewController.swift */; };
@@ -49,10 +51,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		96623F57275C7F1D00379D3A /* CalculatorFormViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorFormViewPresenter.swift; sourceTree = "<group>"; };
 		96BB9F49275B603000A47856 /* SeriesItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesItemTableViewCell.swift; sourceTree = "<group>"; };
 		96BB9F4B275B606500A47856 /* SeriesItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesItemTableViewCell.xib; sourceTree = "<group>"; };
 		96BB9F4E275B630F00A47856 /* RoktTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktTableViewCell.swift; sourceTree = "<group>"; };
 		96BB9F50275B959F00A47856 /* CalculatorFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorFormViewController.swift; sourceTree = "<group>"; };
+		96BB9F55275BB5F900A47856 /* ViewController_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController_Extension.swift; sourceTree = "<group>"; };
 		96CF47332757857700220A49 /* rokt-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "rokt-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		96CF47362757857700220A49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		96CF47382757857700220A49 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96623F59275C867200379D3A /* CalculatorForm */ = {
+			isa = PBXGroup;
+			children = (
+				96BB9F50275B959F00A47856 /* CalculatorFormViewController.swift */,
+				96623F57275C7F1D00379D3A /* CalculatorFormViewPresenter.swift */,
+			);
+			path = CalculatorForm;
+			sourceTree = "<group>";
+		};
 		96BB9F48275B600800A47856 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +115,14 @@
 				96BB9F4E275B630F00A47856 /* RoktTableViewCell.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		96BB9F54275BB5E000A47856 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				96BB9F55275BB5F900A47856 /* ViewController_Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		96CF472A2757857700220A49 = {
@@ -126,6 +147,7 @@
 		96CF47352757857700220A49 /* rokt-app */ = {
 			isa = PBXGroup;
 			children = (
+				96BB9F54275BB5E000A47856 /* Extensions */,
 				96BB9F4D275B62FF00A47856 /* Common */,
 				96CF477327578D5C00220A49 /* Calculator */,
 				96CF47362757857700220A49 /* AppDelegate.swift */,
@@ -157,11 +179,11 @@
 		96CF477327578D5C00220A49 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				96623F59275C867200379D3A /* CalculatorForm */,
 				96BB9F48275B600800A47856 /* Views */,
 				96CF477F2757A50900220A49 /* CalculatorConfiguration.swift */,
 				96CF473A2757857700220A49 /* CalculatorViewController.swift */,
 				96CF477527578D9600220A49 /* CalculatorViewPresenter.swift */,
-				96BB9F50275B959F00A47856 /* CalculatorFormViewController.swift */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -272,8 +294,10 @@
 				96CF473B2757857700220A49 /* CalculatorViewController.swift in Sources */,
 				96BB9F4F275B630F00A47856 /* RoktTableViewCell.swift in Sources */,
 				96BB9F51275B959F00A47856 /* CalculatorFormViewController.swift in Sources */,
+				96623F58275C7F1D00379D3A /* CalculatorFormViewPresenter.swift in Sources */,
 				96BB9F4A275B603000A47856 /* SeriesItemTableViewCell.swift in Sources */,
 				96CF477627578D9600220A49 /* CalculatorViewPresenter.swift in Sources */,
+				96BB9F56275BB5F900A47856 /* ViewController_Extension.swift in Sources */,
 				96CF47372757857700220A49 /* AppDelegate.swift in Sources */,
 				96CF47392757857700220A49 /* SceneDelegate.swift in Sources */,
 				96CF47802757A50900220A49 /* CalculatorConfiguration.swift in Sources */,

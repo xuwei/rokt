@@ -17,45 +17,66 @@ protocol CalculatorFormViewControllerDelegate: AnyObject {
     func cancel()
 }
 
-class CalculatorFormViewController: UIViewController {
+class CalculatorFormViewController: UIViewController, CalculatorFormViewProtocol {
+    @IBOutlet private weak var captionLabel: UILabel!
     @IBOutlet private weak var inputField: UITextField!
-    var context: CalculatorFormContext
+    @IBOutlet private weak var scrollView: UIScrollView!
+    var presenter: CalculatorFormViewPresenterDelegate?
     weak var delegate: CalculatorFormViewControllerDelegate?
     
     required init?(coder aDecoder: NSCoder) {
-        self.context = .add
         super.init(coder: aDecoder)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupKeyboardHandling()
+        presenter?.bind(self)
     }
     
+    // MARK:- CalculatorFormViewProtocol
+    func render(with viewModel: CalculatorFormViewModel) {
+        self.title = viewModel.title
+        self.captionLabel.text = viewModel.captionText
+        self.inputField.placeholder = viewModel.placeHolderText
+        navigationItem.rightBarButtonItem?.isEnabled = viewModel.submitEnabled
+    }
+    
+    func submit(with context: CalculatorFormContext) {
+        guard let text = inputField?.text else { return }
+        delegate?.textEntered(text, context: context)
+    }
+    
+    func dismiss() {
+        delegate?.cancel()
+    }
+
     // MARK: - Private
     private func setupUI() {
-        self.title = context == .add ? "Add" : "Remove"
-        self.inputField.placeholder = "Please enter numeric value..."
-        self.inputField.keyboardType = .numbersAndPunctuation
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit",
-                                                            style: .plain,
+                                                            style: .done,
                                                             target: self,
                                                             action: #selector(didTapSubmit))
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel",
-                                                           style: .plain,
+                                                           style: .done,
                                                            target: self,
                                                            action: #selector(didTapCancel))
     }
     
-    // MARK: - Private
     @objc private func didTapCancel() {
-        delegate?.cancel()
+        presenter?.didTapCancel()
     }
     
     @objc private func didTapSubmit() {
-        guard let inputFieldText = inputField?.text else { return }
-        delegate?.textEntered(inputFieldText, context: context)
+        presenter?.didTapSubmit()
+    }
+}
+
+extension CalculatorFormViewController {
+    override func baseScrollView() -> UIScrollView? {
+        return self.scrollView
     }
 }
 
@@ -65,13 +86,11 @@ extension CalculatorFormViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        navigationItem.rightBarButtonItem?.isEnabled = true
         textField.resignFirstResponder()
+        presenter?.didEnteredText(textField.text ?? "")
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let text = textField.text, !text.isEmpty else { return false }
-        guard let _ = Double(text) else { return false }
         textField.resignFirstResponder()
         return true
     }
