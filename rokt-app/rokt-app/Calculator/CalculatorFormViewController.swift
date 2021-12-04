@@ -19,6 +19,9 @@ protocol CalculatorFormViewControllerDelegate: AnyObject {
 
 class CalculatorFormViewController: UIViewController {
     @IBOutlet private weak var inputField: UITextField!
+    @IBOutlet private weak var scrollView: UIScrollView!
+    private let placeHolder = "Please enter numeric value. e.g. 100, -100"
+
     var context: CalculatorFormContext
     weak var delegate: CalculatorFormViewControllerDelegate?
     
@@ -30,12 +33,13 @@ class CalculatorFormViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupKeyboardHandling()
     }
-    
+
     // MARK: - Private
     private func setupUI() {
         self.title = context == .add ? "Add" : "Remove"
-        self.inputField.placeholder = "Please enter numeric value..."
+        self.inputField.placeholder = placeHolder
         self.inputField.keyboardType = .numbersAndPunctuation
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit",
                                                             style: .plain,
@@ -48,7 +52,6 @@ class CalculatorFormViewController: UIViewController {
                                                            action: #selector(didTapCancel))
     }
     
-    // MARK: - Private
     @objc private func didTapCancel() {
         delegate?.cancel()
     }
@@ -56,6 +59,10 @@ class CalculatorFormViewController: UIViewController {
     @objc private func didTapSubmit() {
         guard let inputFieldText = inputField?.text else { return }
         delegate?.textEntered(inputFieldText, context: context)
+    }
+    
+    override func baseScrollView() -> UIScrollView? {
+        return self.scrollView
     }
 }
 
