@@ -10,6 +10,7 @@ import UIKit
 class CalculatorViewController: UIViewController, CalculatorViewProtocol {
     @IBOutlet weak var tableView: UITableView!
     let presenter: CalculatorViewPresenterProtocol = CalculatorViewPresenter()
+    let cellIdentifier = "SeriesItemTableViewCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,13 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
     
     // MARK: - CalculatorViewProtocol
     func render() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            let rightButton = UIBarButtonItem(title: self.presenter.viewModel?.editToggleTitle,
+                                              style: .plain,
+                                              target: self,
+                                              action: #selector(self.toggleEdit))
+            self.navigationItem.setRightBarButton(rightButton, animated: true)
             self.tableView.reloadData()
         }
     }
@@ -40,14 +47,28 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
         tableView.dataSource = self
+        let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
+        self.tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
+                                                                 style: .plain,
+                                                                 target: self,
+                                                                 action: #selector(toggleEdit))
+    }
+    
+    @objc private func toggleEdit() {
+        presenter.didToggleEdit()
     }
 }
 
 extension CalculatorViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let series = presenter.viewModel?.series else { return UITableViewCell() }
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "TableViewCell")
-        cell.textLabel?.text = series[indexPath.row]
+        let cellViewModel: RoktTableViewModelProtocol = series[indexPath.row]
+        let cell: SeriesItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
+                                                                          for: indexPath) as! SeriesItemTableViewCell
+        
+        cell.configure(cellViewModel, delegate: self)
         return cell
     }
 }
@@ -58,3 +79,8 @@ extension CalculatorViewController: UITableViewDataSource {
     }
 }
 
+extension CalculatorViewController: SeriesItemTableViewCellDelgate {
+    func deleteItemFromSeries(_ cell: SeriesItemTableViewCell) {
+        presenter.didTapDeleteItem()
+    }
+}
