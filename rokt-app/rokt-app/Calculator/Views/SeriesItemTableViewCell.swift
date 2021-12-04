@@ -13,6 +13,7 @@ protocol SeriesItemTableViewCellDelgate: AnyObject {
 
 struct SeriesItemTableViewCellViewModel: RoktTableViewModelProtocol {
     let value: String
+    let textColor: UIColor
     let showDeleteButton: Bool
 }
 
@@ -33,6 +34,7 @@ final class SeriesItemTableViewCell: UITableViewCell, RoktTableViewCell {
     func configure(_ viewModel: RoktTableViewModelProtocol, delegate: SeriesItemTableViewCellDelgate? = nil) {
         guard let viewModel = viewModel as? SeriesItemTableViewCellViewModel else { return }
         valueLabel.text = viewModel.value
+        valueLabel.textColor = viewModel.textColor
         deleteButton.isHidden = !viewModel.showDeleteButton
     }
 }

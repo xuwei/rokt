@@ -73,7 +73,9 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
         guard let viewModel = viewModel else { return }
         context = context == .edit ? .view : .edit
         let updatedSeries = viewModel.series.map {
-            SeriesItemTableViewCellViewModel(value: $0.value, showDeleteButton: context == .edit)
+            SeriesItemTableViewCellViewModel(value: $0.value,
+                                             textColor: $0.textColor,
+                                             showDeleteButton: context == .edit)
         }
         let updatedCalculatorViewModel = CalculatorViewModel(series: updatedSeries, average: viewModel.average, context: context)
         self.viewModel = updatedCalculatorViewModel
@@ -95,12 +97,13 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
             case .success(let seriesResponse):
                 let seriesItems: [SeriesItemTableViewCellViewModel] = seriesResponse.series.map {
                     SeriesItemTableViewCellViewModel(value: String(format: "%.5f", $0),
-                                                     showDeleteButton: true)
+                                                     textColor: $0 >= 0.0 ? .green : .red,
+                                                     showDeleteButton: self.context == .edit)
                 }
                 
                 self.viewModel = CalculatorViewModel(series: seriesItems,
                                                      average: String(format: "%.5f", seriesResponse.average),
-                                                     context: .view)
+                                                     context: self.context)
                 self.render()
             case .failure(let err):
                 self.view?.showDialog(message: err.localizedDescription)
