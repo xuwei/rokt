@@ -9,8 +9,10 @@ import UIKit
 
 class CalculatorViewController: UIViewController, CalculatorViewProtocol {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     let presenter: CalculatorViewPresenterProtocol = CalculatorViewPresenter()
     let cellIdentifier = "SeriesItemTableViewCell"
+    private(set) var viewModel: CalculatorViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +26,34 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
     }
     
     // MARK: - CalculatorViewProtocol
-    func render() {
+    func render(with viewState: CalculatorViewState) {
+        switch viewState {
+        case .loaded(let viewModel):
+            renderLoaded(with: viewModel)
+        case .loading:
+            renderLoading()
+        }
+    }
+    
+    func renderLoaded(with viewModel: CalculatorViewModel) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            let rightButton = UIBarButtonItem(title: self.presenter.viewModel?.editToggleTitle,
+            self.viewModel = viewModel
+            self.title = String("Avg: \(viewModel.average)")
+            let rightButton = UIBarButtonItem(title: viewModel.editToggleTitle,
                                               style: .plain,
                                               target: self,
                                               action: #selector(self.toggleEdit))
             self.navigationItem.setRightBarButton(rightButton, animated: true)
+            self.loadingIndicator.stopAnimating()
+            self.tableView.isHidden = false
             self.tableView.reloadData()
         }
+    }
+    
+    func renderLoading() {
+        tableView.isHidden = true
+        loadingIndicator.startAnimating()
     }
     
     func showDialog(message: String) {
@@ -49,8 +69,7 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
         tableView.dataSource = self
         let cellNib = UINib(nibName: cellIdentifier, bundle: nil)
         self.tableView.register(cellNib, forCellReuseIdentifier: cellIdentifier)
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit",
                                                                  style: .plain,
                                                                  target: self,
                                                                  action: #selector(toggleEdit))
@@ -63,7 +82,7 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
 
 extension CalculatorViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let series = presenter.viewModel?.series else { return UITableViewCell() }
+        guard let series = viewModel?.series else { return UITableViewCell() }
         let cellViewModel: RoktTableViewModelProtocol = series[indexPath.row]
         let cell: SeriesItemTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
                                                                           for: indexPath) as! SeriesItemTableViewCell
@@ -75,7 +94,7 @@ extension CalculatorViewController: UITableViewDelegate {
 
 extension CalculatorViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter.viewModel?.series.count ?? 0
+        viewModel?.series.count ?? 0
     }
 }
 

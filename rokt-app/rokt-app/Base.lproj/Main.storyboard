@@ -2,23 +2,31 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JGH-2t-sbp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
+        <deployment version="4608" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calculator View Controller-->
+        <!--Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="rokt_app" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="BYZ-38-t0r" customClass="CalculatorViewController" customModule="rokt_app" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="wwA-bI-k2h">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="ZQ9-rS-qgk"/>
+                                    <constraint firstAttribute="height" constant="37" id="wb7-Az-ghe"/>
+                                </constraints>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-uz-TIz">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="bKy-cc-beb"/>
@@ -30,13 +38,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="7HL-uz-TIz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="L6z-UI-T5G"/>
+                            <constraint firstItem="wwA-bI-k2h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="av3-nB-mhw"/>
+                            <constraint firstItem="wwA-bI-k2h" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eQ1-wf-YKH"/>
                             <constraint firstItem="7HL-uz-TIz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="h27-5w-Y1d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7HL-uz-TIz" secondAttribute="bottom" id="iHK-t4-gQK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7HL-uz-TIz" secondAttribute="trailing" id="tt0-GI-cll"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5q5-rd-Hdg"/>
+                    <navigationItem key="navigationItem" title="Calculator" id="5q5-rd-Hdg"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="wwA-bI-k2h" id="9RE-IC-01k"/>
                         <outlet property="tableView" destination="7HL-uz-TIz" id="bci-5Z-2m2"/>
                     </connections>
                 </viewController>
@@ -47,15 +58,13 @@
         <!--Navigation Controller-->
         <scene sceneID="pdG-Ai-Sn9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JGH-2t-sbp" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" toolbarHidden="NO" id="JGH-2t-sbp" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Iyg-Jl-7k5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <navigationBarAppearance key="standardAppearance">
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </navigationBarAppearance>
+                        <navigationBarAppearance key="standardAppearance"/>
+                        <navigationBarAppearance key="compactAppearance"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

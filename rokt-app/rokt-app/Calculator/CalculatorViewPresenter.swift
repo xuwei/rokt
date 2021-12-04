@@ -10,7 +10,7 @@ import rokt_framework
 
 // MARK: - CalculatorViewProtocol
 protocol CalculatorViewProtocol {
-    func render()
+    func render(with viewState: CalculatorViewState)
     func showDialog(message: String)
 }
 
@@ -21,7 +21,6 @@ protocol CalculatorViewPresenterProtocol {
     func didTapAddItem()
     func didTapDeleteItem()
     func didToggleEdit()
-    var viewModel: CalculatorViewModel? { get }
 }
 
 // MARK: - CalculatorViewContext
@@ -39,12 +38,17 @@ struct CalculatorViewModel {
     var showDeleteButton: Bool { context == .edit }
 }
 
+enum CalculatorViewState {
+    case loaded(viewModel: CalculatorViewModel)
+    case loading
+}
+
 // MARK: - CalculatorViewPresenter
 final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
-    let service: RoktCalculatorService
-    var viewModel: CalculatorViewModel?
-    var view: CalculatorViewProtocol?
-    var context: CalculatorViewContext = .view
+    private let service: RoktCalculatorService
+    private var viewModel: CalculatorViewModel?
+    private var view: CalculatorViewProtocol?
+    private var context: CalculatorViewContext = .view
     
     init(configuration: CalculatorConfiguration = CalculatorConfiguration()) {
         self.service = RoktCalculatorService(baseURLString: configuration.baseURLString)
@@ -74,8 +78,7 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
         context = context == .edit ? .view : .edit
         let updatedSeries = viewModel.series.map {
             SeriesItemTableViewCellViewModel(value: $0.value,
-                                             textColor: $0.textColor,
-                                             showDeleteButton: context == .edit)
+                                             textColor: $0.textColor)
         }
         let updatedCalculatorViewModel = CalculatorViewModel(series: updatedSeries, average: viewModel.average, context: context)
         self.viewModel = updatedCalculatorViewModel
@@ -84,21 +87,26 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
     
     // MARK: - CalculatorViewProtocol
     func render() {
-        view?.render()
+        guard let viewModel = viewModel else { return }
+        view?.render(with: .loaded(viewModel: viewModel))
+    }
+    
+    func loading() {
+        view?.render(with: .loading)
     }
     
     // MARK: - Private
     private func fetchData() {
         let factory = RoktCalculatorCommandFactory(for: service)
         guard let command = factory.makeRoktCalculatorFetchSeriesCommand(with: .neverExpires) else { return }
+        loading()
         service.fetchSeries(with: command) { [weak self] (result: Result<RoktSeriesResponse, RoktNetworkError>) in
             guard let self = self else { return }
             switch result {
             case .success(let seriesResponse):
                 let seriesItems: [SeriesItemTableViewCellViewModel] = seriesResponse.series.map {
                     SeriesItemTableViewCellViewModel(value: String(format: "%.5f", $0),
-                                                     textColor: $0 >= 0.0 ? .green : .red,
-                                                     showDeleteButton: self.context == .edit)
+                                                     textColor: $0 >= 0.0 ? .green : .red)
                 }
                 
                 self.viewModel = CalculatorViewModel(series: seriesItems,
@@ -106,6 +114,8 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
                                                      context: self.context)
                 self.render()
             case .failure(let err):
+                self.viewModel = CalculatorViewModel(series: [], average: "--", context: self.context)
+                self.render()
                 self.view?.showDialog(message: err.localizedDescription)
             }
         }
