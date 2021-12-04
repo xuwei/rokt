@@ -60,7 +60,7 @@ final public class RoktNetwork {
                                     forcedRefresh: Bool = false,
                                     completion: @escaping (Result<T, RoktNetworkError>) -> Void) {
         if forcedRefresh == false, let cached = cache.retrieve(command.cacheKey, object: T.self) {
-            completion(.success(cached))
+            completion(.success(cached)); return 
         }
         
         let request = URLRequest(url: command.url,

@@ -20,6 +20,18 @@ final public class RoktCalculatorService: RoktService {
         self.roktNetwork = RoktNetwork()
     }
     
+    public func removeNumberFromSeries(_ valueToRemove: Double, for command: RoktCalculatorFetchSeriesCommand) -> Bool {
+        guard var series = self.roktNetwork.cache.retrieve(command.cacheKey, object: [Double].self) else { return false }
+        series = series.filter { $0 != valueToRemove }
+        return self.roktNetwork.cache.store(data: series, cachePolicy: command.cachePolicy, key: command.cacheKey)
+    }
+    
+    public func addToSeries(_ newValue: Double, for command: RoktCalculatorFetchSeriesCommand) -> Bool {
+        guard var series = self.roktNetwork.cache.retrieve(command.cacheKey, object: [Double].self) else { return false }
+        series.append(newValue)
+        return self.roktNetwork.cache.store(data: series, cachePolicy: command.cachePolicy, key: command.cacheKey)
+    }
+    
     public func fetchSeries(with command: RoktCalculatorFetchSeriesCommand, _ completion: @escaping (Result<RoktSeriesResponse, RoktNetworkError>) -> Void) {
         roktNetwork.execute(with: command) { (result: Result<[Double], RoktNetworkError>) in
             switch result {

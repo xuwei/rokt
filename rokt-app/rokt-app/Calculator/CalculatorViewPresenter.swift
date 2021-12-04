@@ -98,11 +98,36 @@ final class CalculatorViewPresenter: CalculatorViewPresenterProtocol {
             }
         }
     }
+    
+    private func addToSeries(_ value: Double) {
+        let factory = RoktCalculatorCommandFactory(for: service)
+        guard let command = factory.makeRoktCalculatorFetchSeriesCommand(with: .neverExpires) else { return }
+        if service.addToSeries(value, for: command) {
+            fetchData()
+        }
+    }
+    
+    private func removeNumberFromSeries(_ value: Double) {
+        let factory = RoktCalculatorCommandFactory(for: service)
+        guard let command = factory.makeRoktCalculatorFetchSeriesCommand(with: .neverExpires) else { return }
+        if service.removeNumberFromSeries(value, for: command) {
+            fetchData()
+        }
+    }
 }
 
 extension CalculatorViewPresenter: CalculatorFormViewControllerDelegate {
-    func textEntered(_ text: String) {
-        print(text)
+    func textEntered(_ text: String, context: CalculatorFormContext) {
+        view?.dismiss()
+        if let numericValue = Double(text) {
+            switch context {
+            case .add:
+                addToSeries(numericValue)
+            case .delete:
+                removeNumberFromSeries(numericValue)
+            }
+            fetchData()
+        }
     }
     
     func cancel() {

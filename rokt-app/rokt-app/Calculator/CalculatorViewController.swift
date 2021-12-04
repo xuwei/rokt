@@ -57,7 +57,8 @@ class CalculatorViewController: UIViewController, CalculatorViewProtocol {
         guard let viewController = storyboard.instantiateViewController(withIdentifier: formStoryboardId) as? CalculatorFormViewController else { return }
         viewController.delegate = delegate
         viewController.context = context
-        self.present(viewController, animated: true)
+        let nav = UINavigationController(rootViewController: viewController)
+        self.present(nav, animated: true)
     }
     
     func dismiss() {

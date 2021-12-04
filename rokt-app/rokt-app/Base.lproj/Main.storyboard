@@ -5,7 +5,6 @@
         <deployment version="4608" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -63,13 +62,35 @@
                     <view key="view" contentMode="scaleToFill" id="07L-G2-NzD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UBt-Zf-aZ1">
+                                <rect key="frame" x="20" y="428" width="374" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="q3r-GI-6vZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ZLU-wV-g1c" id="ctf-vo-QOl"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xp5-OH-3Ru"/>
-                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <color key="backgroundColor" red="0.93514367305871215" green="0.93514367305871215" blue="0.93514367305871215" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="UBt-Zf-aZ1" firstAttribute="leading" secondItem="xp5-OH-3Ru" secondAttribute="leading" constant="20" id="K2m-gl-zQs"/>
+                            <constraint firstItem="UBt-Zf-aZ1" firstAttribute="centerY" secondItem="07L-G2-NzD" secondAttribute="centerY" id="TjL-Gq-A0j"/>
+                            <constraint firstItem="xp5-OH-3Ru" firstAttribute="trailing" secondItem="UBt-Zf-aZ1" secondAttribute="trailing" constant="20" id="oUn-9c-N4Y"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="o3w-mB-Ix4"/>
+                    <connections>
+                        <outlet property="inputField" destination="UBt-Zf-aZ1" id="f6o-P5-kAi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X5g-AD-rnc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1817" y="139"/>
+            <point key="canvasLocation" x="2726.0869565217395" y="138.61607142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pdG-Ai-Sn9">
@@ -91,10 +112,23 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jgr-R6-sxi">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hww-R2-eMn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qVB-Jk-l8G">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZLU-wV-g1c" kind="relationship" relationship="rootViewController" id="SuG-hD-JXT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XSC-CM-2Dp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1815.9420289855075" y="138.61607142857142"/>
+        </scene>
     </scenes>
-    <resources>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-    </resources>
 </document>

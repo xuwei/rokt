@@ -18,8 +18,7 @@ final public class RoktCalculatorFetchSeriesCommand: RoktCommand {
     }
     
     init(url: URL, cachePolicy: RoktCachePolicy = .noCache, timeout: TimeInterval? = RoktConstants.standardTimeout) {
-//        self.url = url
-        self.url = URL(string:"https://firebasestorage.googleapis.com/v0/b/rokt-test-api.appspot.com/o/store%2Ftest%2Fandroid%2Fprestore.json?alt=media&token=a53aad3d-1688-4bcd-86ca-75c7e954743d")!
+        self.url = url
         self.cachePolicy = cachePolicy
         self.timeout = timeout
     }
