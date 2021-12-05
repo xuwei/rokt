@@ -60,11 +60,11 @@ Some key relationships:
 
 ### flow on rokt-app when doing API call 
 
-![api flow](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot2.png)
+![removing number flow](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot3.png)
 
 ### flow on rokt-app when "Removing number"
 
-![removing number flow](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot3.png)
+![api flow](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot2.png)
 
 ## Further contact
 
