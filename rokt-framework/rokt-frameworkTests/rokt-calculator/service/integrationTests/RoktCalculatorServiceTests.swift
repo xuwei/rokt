@@ -4,9 +4,35 @@
 //
 //  Created by Xuwei Liang on 2/12/21.
 //
-
+import Foundation
 import XCTest
 import rokt_framework
+
+fileprivate class RoktPopulatedMockCache: RoktCache {
+    var series: [Double] = [100.0, 50.0, -100.0]
+    
+    func store<T: Codable>(data: T, cachePolicy: RoktCachePolicy, key: String) -> Bool {
+        guard let series = data as? [Double] else { return false }
+        self.series = series
+        return true
+    }
+    
+    func retrieve<T>(_ key: String, object: T.Type) -> T? where T : Decodable, T : Encodable {
+        return series as? T
+    }
+    
+    func clearCache() {}
+}
+fileprivate class RoktMockNetwork: RoktNetworkProtocol {
+    var configuration: RoktNetworkConfiguration = RoktNetworkConfiguration(policy: .noCache, timeout: 0)
+    var cache: RoktCache = RoktPopulatedMockCache()
+    var urlSession: URLSession = URLSession(configuration: .default)
+    func execute<T: Codable>(with command: RoktCommand,
+                             forcedRefresh: Bool,
+                             completion: @escaping (Result<T, RoktNetworkError>) -> Void) {
+        completion(.failure(.emptyData))
+    }
+}
 
 class RoktCalculatorServiceTests: XCTestCase {
     let service: RoktCalculatorService = RoktCalculatorService(baseURLString: "https://firebasestorage.googleapis.com")
@@ -60,18 +86,37 @@ class RoktCalculatorServiceTests: XCTestCase {
     }
     
     func testRemoveNumberFromSeriesSuccessful() {
-        
+        guard let command = factory.makeRoktCalculatorFetchSeriesCommand(with: .noCache, customURL: URL(string: sampleJsonUrl)) else {
+            XCTFail("Unable to create command")
+            return
+        }
+        let service = RoktCalculatorService(baseURLString: "", customRoktNetwork: RoktMockNetwork())
+        let stored = service.addToSeries(-999, for: command)
+        XCTAssertTrue(stored)
+        XCTAssertTrue(service.removeNumberFromSeries(-999, for: command))
     }
     
     func testRemoveNumberFromSeriesFailed() {
-        
+        guard let command = factory.makeRoktCalculatorFetchSeriesCommand(with: .noCache, customURL: URL(string: sampleJsonUrl)) else {
+            XCTFail("Unable to create command")
+            return
+        }
+        let service = RoktCalculatorService(baseURLString: "", customRoktNetwork: RoktMockNetwork())
+        let stored = service.addToSeries(-100, for: command)
+        XCTAssertFalse(stored)
     }
     
-    func testAddToSeriesSuccessful() {
-        
-    }
-    
-    func testAddToSeriesFailed() {
-        
+    func testRemoveNumberFromSeriesUntilEmpty() {
+        guard let command = factory.makeRoktCalculatorFetchSeriesCommand(with: .noCache, customURL: URL(string: sampleJsonUrl)) else {
+            XCTFail("Unable to create command")
+            return
+        }
+        let service = RoktCalculatorService(baseURLString: "", customRoktNetwork: RoktMockNetwork())
+        XCTAssertTrue(service.removeNumberFromSeries(-100, for: command))
+        XCTAssertTrue(service.removeNumberFromSeries(50, for: command))
+        XCTAssertTrue(service.removeNumberFromSeries(100, for: command))
+        XCTAssertFalse(service.removeNumberFromSeries(100, for: command))
+        let stored2 = service.addToSeries(-100, for: command)
+        XCTAssertTrue(stored2)
     }
 }
