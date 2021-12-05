@@ -75,7 +75,7 @@ extension UIViewController {
     
     @objc func keyboardWillShowWithScrollView(notification: NSNotification) {
         guard let scrollView = self.baseScrollView() else { return }
-        let padding: CGFloat = 20
+        let padding: CGFloat = 8
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             var contentInset:UIEdgeInsets = scrollView.contentInset
             contentInset.bottom = keyboardSize.height + padding
