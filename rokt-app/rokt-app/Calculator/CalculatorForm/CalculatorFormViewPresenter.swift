@@ -29,6 +29,7 @@ struct CalculatorFormViewModel {
 
 final class CalculatorFormViewPresenter: CalculatorFormViewPresenterDelegate {
     let context: CalculatorFormContext
+    let validator = CalculatorFormValidator()
     weak var view: CalculatorFormViewProtocol?
     var textEntry: String?
     var validationMessage: String?
@@ -45,7 +46,7 @@ final class CalculatorFormViewPresenter: CalculatorFormViewPresenterDelegate {
     
     func didEnteredText(_ text: String) {
         self.textEntry = text
-        validationMessage = isValidInput(text)
+        validationMessage = validator.isValidInput(text)
         render()
     }
     
@@ -69,13 +70,5 @@ final class CalculatorFormViewPresenter: CalculatorFormViewPresenterDelegate {
         view?.render(with: viewModel)
     }
     
-    private func isValidInput(_ text: String?) -> String? {
-        guard let text = text, !text.isEmpty else {
-            return "Please enter a value"
-        }
-        guard let _ = Double(text) else {
-            return "Please enter a numeric value"
-        }
-        return nil
-    }
+    
 }

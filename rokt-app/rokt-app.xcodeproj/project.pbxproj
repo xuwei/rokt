@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		96623F58275C7F1D00379D3A /* CalculatorFormViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96623F57275C7F1D00379D3A /* CalculatorFormViewPresenter.swift */; };
+		96623F5D275CEC8B00379D3A /* CalculatorFormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96623F5C275CEC8B00379D3A /* CalculatorFormValidator.swift */; };
+		96623F5F275CEC9F00379D3A /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96623F5E275CEC9F00379D3A /* Validator.swift */; };
 		96BB9F4A275B603000A47856 /* SeriesItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB9F49275B603000A47856 /* SeriesItemTableViewCell.swift */; };
 		96BB9F4C275B606500A47856 /* SeriesItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 96BB9F4B275B606500A47856 /* SeriesItemTableViewCell.xib */; };
 		96BB9F4F275B630F00A47856 /* RoktTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96BB9F4E275B630F00A47856 /* RoktTableViewCell.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		96623F57275C7F1D00379D3A /* CalculatorFormViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorFormViewPresenter.swift; sourceTree = "<group>"; };
+		96623F5C275CEC8B00379D3A /* CalculatorFormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorFormValidator.swift; sourceTree = "<group>"; };
+		96623F5E275CEC9F00379D3A /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		96BB9F49275B603000A47856 /* SeriesItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesItemTableViewCell.swift; sourceTree = "<group>"; };
 		96BB9F4B275B606500A47856 /* SeriesItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeriesItemTableViewCell.xib; sourceTree = "<group>"; };
 		96BB9F4E275B630F00A47856 /* RoktTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoktTableViewCell.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			children = (
 				96BB9F50275B959F00A47856 /* CalculatorFormViewController.swift */,
 				96623F57275C7F1D00379D3A /* CalculatorFormViewPresenter.swift */,
+				96623F5C275CEC8B00379D3A /* CalculatorFormValidator.swift */,
 			);
 			path = CalculatorForm;
 			sourceTree = "<group>";
@@ -113,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				96BB9F4E275B630F00A47856 /* RoktTableViewCell.swift */,
+				96623F5E275CEC9F00379D3A /* Validator.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -295,6 +301,8 @@
 				96BB9F4F275B630F00A47856 /* RoktTableViewCell.swift in Sources */,
 				96BB9F51275B959F00A47856 /* CalculatorFormViewController.swift in Sources */,
 				96623F58275C7F1D00379D3A /* CalculatorFormViewPresenter.swift in Sources */,
+				96623F5F275CEC9F00379D3A /* Validator.swift in Sources */,
+				96623F5D275CEC8B00379D3A /* CalculatorFormValidator.swift in Sources */,
 				96BB9F4A275B603000A47856 /* SeriesItemTableViewCell.swift in Sources */,
 				96CF477627578D9600220A49 /* CalculatorViewPresenter.swift in Sources */,
 				96BB9F56275BB5F900A47856 /* ViewController_Extension.swift in Sources */,
