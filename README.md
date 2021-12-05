@@ -11,7 +11,7 @@ To further assist integration testing, I have developed a suite of test data API
  - OSX Big Sur
  - **rokt-app** deployment target is set to iOS13
  - **rokt-framework** deployment target is set to iOS12
- - **git repo** https://github.com/xuwei/rokt - "git clone git@github.com:xuwei/rokt.git"
+ - **git repo** https://github.com/xuwei/rokt
 
 ## Steps to run project after checkout from git
 
@@ -40,7 +40,7 @@ To further assist integration testing, I have developed a suite of test data API
 
  - Developers don't need to checkout and setup firebase emulator locally to have integration tests working. As rokt-test-api is deployed and live already.
  - Link to the API dashboard - https://console.firebase.google.com/project/rokt-test-api/functions/list
- - **git repo** https://github.com/xuwei/rokt-test-api - "git clone git@github.com:xuwei/rokt-test-api.git"
+ - **git repo** https://github.com/xuwei/rokt-test-api
 
 ## Notes for Developer
 
