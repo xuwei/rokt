@@ -22,12 +22,14 @@ final public class RoktCalculatorService: RoktService {
     
     public func removeNumberFromSeries(_ valueToRemove: Double, for command: RoktCalculatorFetchSeriesCommand) -> Bool {
         guard var series = self.roktNetwork.cache.retrieve(command.cacheKey, object: [Double].self) else { return false }
+        guard series.firstIndex(of: valueToRemove) != nil else { return false }
         series = series.filter { $0 != valueToRemove }
         return self.roktNetwork.cache.store(data: series, cachePolicy: command.cachePolicy, key: command.cacheKey)
     }
     
     public func addToSeries(_ newValue: Double, for command: RoktCalculatorFetchSeriesCommand) -> Bool {
         guard var series = self.roktNetwork.cache.retrieve(command.cacheKey, object: [Double].self) else { return false }
+        guard series.firstIndex(of: newValue) == nil else { return false }
         series.append(newValue)
         return self.roktNetwork.cache.store(data: series, cachePolicy: command.cachePolicy, key: command.cacheKey)
     }

@@ -8,8 +8,11 @@
 import XCTest
 
 class RoktCalculatorServiceTests: XCTestCase {
-
-    func testExample() throws {
+//    public func removeNumberFromSeries(_ valueToRemove: Double, for command: RoktCalculatorFetchSeriesCommand) -> Bool
+//    public func addToSeries(_ newValue: Double, for command: RoktCalculatorFetchSeriesCommand) -> Bool
+//    public func fetchSeries(with command: RoktCalculatorFetchSeriesCommand, _ completion: @escaping (Result<RoktSeriesResponse, RoktNetworkError>) -> Void)
+    
+    func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

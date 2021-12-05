@@ -5,6 +5,7 @@
         <deployment version="4608" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,7 +26,7 @@
                                 <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7HL-uz-TIz">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -35,7 +36,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="7HL-uz-TIz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="L6z-UI-T5G"/>
                             <constraint firstItem="wwA-bI-k2h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="av3-nB-mhw"/>
@@ -80,12 +81,24 @@
                                                     <outlet property="delegate" destination="ZLU-wV-g1c" id="ctf-vo-QOl"/>
                                                 </connections>
                                             </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edY-iM-5XX" userLabel="caption">
+                                                <rect key="frame" x="20" y="335" width="334" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="8BZ-eU-uWN"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" systemColor="systemRedColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="UBt-Zf-aZ1" secondAttribute="trailing" constant="20" id="5nE-oa-Syb"/>
+                                            <constraint firstItem="UBt-Zf-aZ1" firstAttribute="top" secondItem="edY-iM-5XX" secondAttribute="bottom" constant="8" symbolic="YES" id="8Ix-Me-wEq"/>
                                             <constraint firstItem="UBt-Zf-aZ1" firstAttribute="leading" secondItem="KPo-lC-Z6z" secondAttribute="leading" constant="20" id="YFB-WJ-tgI"/>
+                                            <constraint firstItem="edY-iM-5XX" firstAttribute="trailing" secondItem="UBt-Zf-aZ1" secondAttribute="trailing" id="m2h-GD-DcK"/>
                                             <constraint firstItem="UBt-Zf-aZ1" firstAttribute="centerX" secondItem="KPo-lC-Z6z" secondAttribute="centerX" id="pG6-Mi-Gc0"/>
+                                            <constraint firstItem="edY-iM-5XX" firstAttribute="leading" secondItem="UBt-Zf-aZ1" secondAttribute="leading" id="uaD-Tu-4ip"/>
                                             <constraint firstItem="UBt-Zf-aZ1" firstAttribute="centerY" secondItem="KPo-lC-Z6z" secondAttribute="centerY" id="xwl-Gd-jgY"/>
                                         </constraints>
                                     </view>
@@ -104,7 +117,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xp5-OH-3Ru"/>
-                        <color key="backgroundColor" red="0.93514367305871215" green="0.93514367305871215" blue="0.93514367305871215" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="53Y-ff-Pa2" firstAttribute="top" secondItem="xp5-OH-3Ru" secondAttribute="top" id="0tu-FQ-66N"/>
                             <constraint firstItem="xp5-OH-3Ru" firstAttribute="bottom" secondItem="53Y-ff-Pa2" secondAttribute="bottom" id="WOH-Lp-6uj"/>
@@ -115,6 +128,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="o3w-mB-Ix4"/>
                     <connections>
+                        <outlet property="captionLabel" destination="edY-iM-5XX" id="2hQ-WW-wdo"/>
                         <outlet property="inputField" destination="UBt-Zf-aZ1" id="f6o-P5-kAi"/>
                         <outlet property="scrollView" destination="53Y-ff-Pa2" id="amB-Sd-te6"/>
                     </connections>
@@ -126,8 +140,9 @@
         <!--Navigation Controller-->
         <scene sceneID="pdG-Ai-Sn9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="light" toolbarHidden="NO" id="JGH-2t-sbp" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JGH-2t-sbp" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Iyg-Jl-7k5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -162,4 +177,12 @@
             <point key="canvasLocation" x="1815.9420289855075" y="138.61607142857142"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

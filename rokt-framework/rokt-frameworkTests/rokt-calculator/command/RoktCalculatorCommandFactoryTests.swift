@@ -9,8 +9,6 @@ import XCTest
 @testable import rokt_framework
 
 class RoktCalculatorCommandFactoryTests: XCTestCase {
-    
-    
     func testMakeRoktCalculatorFetchSeriesCommandWithValidBaseURLString() {
         let factory = RoktCalculatorCommandFactory(for: RoktMockService(with: "test.com"))
         let command = factory.makeRoktCalculatorFetchSeriesCommand()
