@@ -19,7 +19,7 @@ To further assist integration testing, I have developed a suite of test data API
  2. check out the repo
  3. **cd rokt** into the project root folder
  4. "**open .**" if you are in terminal, open in finder if you checkout through SourceTree
- 5. double click on workspace file - [screenshot reference](https://firebasestorage.googleapis.com/v0/b/rokt-test-api.appspot.com/o/images/readme-screenshot-01.png?alt=media&token=5bf66dd0-da79-49da-a8e1-9fa499f47f50)
+ 5. double click on workspace file <br/>![workspace file](https://github.com/xuwei/rokt/blob/master/readme-assets/screenshot0.png)<br/>
  6. two project should show up, one is call **rokt-app** and the other is **rokt-framework**
 
 ## Running rokt-app
@@ -50,15 +50,7 @@ I would like to briefly describe the architectural design of both project below.
 
 Some key relationships:
 
-```mermaid
-graph LR
-F[RoktCalculatorCommandFactory] -- create --> E[RoktCalculatorFetchSeriesCommand]
-G[RoktCalculatorFetchSeriesCommand] -- implements --> D[RoktCommand]
-A[RoktCalculatorService] -- uses --> B[RoktNetworkProtocol] -- contains --> C[RoktCache]
-H[RoktDefaultsCache] -- implements --> J[RoktCache]
-k[RoktNetwork] -- implements --> l[RoktNeworkProtocol]
-m[RoktNetworkError] -- extends --> n[Error]
-```
+![key relationships](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot1.png)
 
  - **RoktNetwork** was abstracts the use of URLSession
  - **RoktCache** is a protocol for cache classes.
@@ -68,29 +60,11 @@ m[RoktNetworkError] -- extends --> n[Error]
 
 ### flow on rokt-app when doing API call 
 
-```mermaid
-sequenceDiagram
-ViewController ->> Presenter: UI events (eg: didTapButton)
-Presenter -->> Service(Rokt-Framework): API calls
-Service(Rokt-Framework) -->> Presenter: API response / RoktNetworkError
-Presenter --> ViewController: ViewModel / UI actions
-```
+![api flow](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot2.png)
 
 ### flow on rokt-app when "Removing number"
 
-```mermaid
-sequenceDiagram
-CalculatorViewController ->> CalculatorViewPresenter: user tapped Add
-CalculatorViewPresenter -->> CalculatorViewController: show CalculatorFormViewController with context (Add/Delete)
-CalculatorViewController ->> CalculatorFormViewController: Presents
-CalculatorFormViewController ->> CalculatorFormViewPresenter: Local validations of input
-CalculatorFormViewPresenter -->>  CalculatorFormViewController: Enable submit button
-CalculatorFormViewController ->> CalculatorFormViewPresenter: user tapped submit
-CalculatorFormViewPresenter -->> CalculatorViewPresenter: delegate callback + dismiss
-CalculatorViewPresenter ->> CalculatorService: Update single source of truth for series
-CalculatorService -->> CalculatorViewPresenter: return bool indicating has series been updated
-CalculatorViewPresenter -->> CalculatorViewController: refresh table or show error if update wasn't successful
-```
+![removing number flow](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot3.png)
 
 ## Further contact
 
