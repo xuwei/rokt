@@ -5,8 +5,6 @@ Hi! This is a demo workspace project to demonstrate separation of network layer 
 
 To further assist integration testing, I have developed a suite of test data APIs through firebase functions. That project is called **rokt-test-api**, which I will also include details of the project in this document. 
 
-### Xuwei
-
 # Recommened setup for development
 
  - Xcode 13.1
