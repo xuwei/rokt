@@ -39,7 +39,7 @@ To further assist integration testing, I have developed a suite of test data API
 ## rokt-test-api
 
  - Developers don't need to checkout and setup firebase emulator locally to have integration tests working. As rokt-test-api is deployed and live already.
- - Link to the API dashboard - https://console.firebase.google.com/project/rokt-test-api/functions/list
+ - Link to the API dashboard - https://console.firebase.google.com/project/rokt-test-api/functions/list (need to be given permission to acesss)
  - **git repo** https://github.com/xuwei/rokt-test-api
 
 ## Notes for Developer
