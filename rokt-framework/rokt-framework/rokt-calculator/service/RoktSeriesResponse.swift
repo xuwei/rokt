@@ -11,6 +11,7 @@ public struct RoktSeriesResponse {
     public let series: [Double]
     private(set) var _sum: Double
     private(set) var _average: Double
+    public var sum: Double { _sum }
     public var average: Double { _average }
     
     public init(series: [Double]) {

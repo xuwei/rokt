@@ -43,10 +43,19 @@ final public class RoktNetworkConfiguration {
     }
 }
 
-final public class RoktNetwork {
-    let configuration: RoktNetworkConfiguration
-    let cache: RoktCache
-    let urlSession: URLSession
+public protocol RoktNetworkProtocol {
+    var configuration: RoktNetworkConfiguration { get }
+    var cache: RoktCache { get }
+    var urlSession: URLSession { get }
+    func execute<T: Codable>(with command: RoktCommand,
+                             forcedRefresh: Bool,
+                             completion: @escaping (Result<T, RoktNetworkError>) -> Void)
+}
+
+final public class RoktNetwork: RoktNetworkProtocol {
+    public var configuration: RoktNetworkConfiguration
+    public var cache: RoktCache
+    public var urlSession: URLSession
     
     public init(with configuration: RoktNetworkConfiguration = .init(),
                 cache: RoktCache = RoktDefaultsCache(),

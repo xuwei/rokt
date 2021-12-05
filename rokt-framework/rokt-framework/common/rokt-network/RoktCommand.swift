@@ -12,6 +12,10 @@ public enum HttpMethod: String {
     case post = "POST"
 }
 
+public struct RoktCommandConstants {
+    public static let defaultTimeout: TimeInterval = 30.0
+}
+
 public protocol RoktCommand {
     var url: URL { get }
     var method: HttpMethod { get }

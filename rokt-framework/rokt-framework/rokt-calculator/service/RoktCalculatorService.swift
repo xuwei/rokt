@@ -13,11 +13,11 @@ public protocol RoktService {
 
 final public class RoktCalculatorService: RoktService {
     public var baseURLString: String
-    private let roktNetwork: RoktNetwork
+    private let roktNetwork: RoktNetworkProtocol
     
-    public init(baseURLString: String) {
+    public init(baseURLString: String, customRoktNetwork: RoktNetworkProtocol? = nil) {
         self.baseURLString = baseURLString
-        self.roktNetwork = RoktNetwork()
+        self.roktNetwork = customRoktNetwork ?? RoktNetwork()
     }
     
     public func removeNumberFromSeries(_ valueToRemove: Double, for command: RoktCalculatorFetchSeriesCommand) -> Bool {
@@ -34,8 +34,10 @@ final public class RoktCalculatorService: RoktService {
         return self.roktNetwork.cache.store(data: series, cachePolicy: command.cachePolicy, key: command.cacheKey)
     }
     
-    public func fetchSeries(with command: RoktCalculatorFetchSeriesCommand, _ completion: @escaping (Result<RoktSeriesResponse, RoktNetworkError>) -> Void) {
-        roktNetwork.execute(with: command) { (result: Result<[Double], RoktNetworkError>) in
+    public func fetchSeries(with command: RoktCalculatorFetchSeriesCommand,
+                            forcedRefresh: Bool = false,
+                            _ completion: @escaping (Result<RoktSeriesResponse, RoktNetworkError>) -> Void) {
+        roktNetwork.execute(with: command, forcedRefresh: forcedRefresh) { (result: Result<[Double], RoktNetworkError>) in
             switch result {
             case .success(let series):
                 let response = RoktSeriesResponse(series: series)
