@@ -14,9 +14,9 @@ final public class RoktCalculatorCommandFactory {
         baseURLString = service.baseURLString
     }
     
-    public func makeRoktCalculatorFetchSeriesCommand(with cachePolicy: RoktCachePolicy? = nil, timeout: TimeInterval? = nil) -> RoktCalculatorFetchSeriesCommand? {
+    public func makeRoktCalculatorFetchSeriesCommand(with cachePolicy: RoktCachePolicy? = nil, timeout: TimeInterval? = nil, customURL: URL? = nil) -> RoktCalculatorFetchSeriesCommand? {
         guard !baseURLString.isEmpty, URL(string: baseURLString) != nil else { return nil }
-        guard let url = URL(string: String("\(baseURLString)/store/test/android/prestored.json")) else { return nil }
-        return RoktCalculatorFetchSeriesCommand(url: url, cachePolicy: cachePolicy ?? .neverExpires, timeout: timeout ?? 30.0)
+        guard let url = customURL ?? URL(string: String("\(baseURLString)/store/test/android/prestored.json")) else { return nil }
+        return RoktCalculatorFetchSeriesCommand(url: url, cachePolicy: cachePolicy ?? .neverExpires, timeout: timeout ?? RoktCommandConstants.defaultTimeout)
     }
 }

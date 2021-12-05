@@ -32,16 +32,16 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hbw-IP-JL0">
-                                            <rect key="frame" x="20" y="0.0" width="25" height="40"/>
+                                            <rect key="frame" x="20" y="0.0" width="31" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="NvJ-Uf-k0l"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                             <color key="textColor" red="0.2135460376739502" green="1" blue="0.82070046663284302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" red="0.2135460376739502" green="1" blue="0.82070046663284302" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwv-3X-Bca" userLabel="space">
-                                            <rect key="frame" x="45" y="0.0" width="247" height="40"/>
+                                            <rect key="frame" x="51" y="0.0" width="241" height="40"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </view>
                                     </subviews>

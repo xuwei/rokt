@@ -12,14 +12,15 @@ final public class RoktCalculatorFetchSeriesCommand: RoktCommand {
     public var method: HttpMethod = .get
     public var cachePolicy: RoktCachePolicy = .noCache
     public var timeout: TimeInterval? = nil
+    public var forcedRefersh: Bool = false
     public var cacheKey: String {
         let urlString = url.absoluteString
         return urlString
     }
     
-    init(url: URL, cachePolicy: RoktCachePolicy = .noCache, timeout: TimeInterval? = RoktConstants.standardTimeout) {
+    init(url: URL, cachePolicy: RoktCachePolicy = .noCache, timeout: TimeInterval? = nil) {
         self.url = url
         self.cachePolicy = cachePolicy
-        self.timeout = timeout
+        self.timeout = timeout ?? RoktCommandConstants.defaultTimeout
     }
 }

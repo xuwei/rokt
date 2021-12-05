@@ -38,16 +38,6 @@
                ReferencedContainer = "container:rokt-app.xcodeproj">
             </BuildableReference>
          </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "96CF4719275784EF00220A49"
-               BuildableName = "rokt-frameworkTests.xctest"
-               BlueprintName = "rokt-frameworkTests"
-               ReferencedContainer = "container:../rokt-framework/rokt-framework.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
