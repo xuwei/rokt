@@ -39,7 +39,7 @@ To further assist integration testing, I have developed a suite of test data API
 ## rokt-test-api
 
  - Developers don't need to checkout and setup firebase emulator locally to have integration tests working. As rokt-test-api is deployed and live already.
- - Link to the API dashboard - https://console.firebase.google.com/project/rokt-test-api/functions/list
+ - Link to the API dashboard - https://console.firebase.google.com/project/rokt-test-api/functions/list (need to be given permission to acesss)
  - **git repo** https://github.com/xuwei/rokt-test-api
 
 ## Notes for Developer
@@ -50,7 +50,7 @@ I would like to briefly describe the architectural design of both project below.
 
 Some key relationships:
 
-![key relationships](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot1.png)
+![key relationships](https://github.com/xuwei/rokt/blob/master/readme-assets/screenshot1.png)
 
  - **RoktNetwork** was abstracts the use of URLSession
  - **RoktCache** is a protocol for cache classes.
@@ -60,11 +60,11 @@ Some key relationships:
 
 ### flow on rokt-app when doing API call 
 
-![api flow](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot2.png)
+![removing number flow](https://github.com/xuwei/rokt/blob/master/readme-assets/screenshot3.png)
 
 ### flow on rokt-app when "Removing number"
 
-![removing number flow](https://github.com/xuwei/rokt/blob/develop/readme-assets/screenshot3.png)
+![api flow](https://github.com/xuwei/rokt/blob/master/readme-assets/screenshot2.png)
 
 ## Further contact
 
